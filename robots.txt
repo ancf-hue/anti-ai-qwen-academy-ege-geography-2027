@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anti-ai-qwen-academy-ege-geography.vercel.app/sitemap.xml
