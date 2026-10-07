@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anti-AI Qwen Academy | Geography EGE-2027</title>
+  <meta
+    name="description"
+    content="Free offline trainer and checklist for EGE Geography 2027: exam structure, 21 Part 1 tasks, 8 Part 2 tasks, criteria, preparation plan."
+  />
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --bg: #070b18;
+      --card: rgba(18, 26, 51, 0.72);
+      --card-soft: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #e8ecff;
+      --muted: #9aa4c8;
+      --accent: #22d3ee;
+      --violet: #7c3aed;
+      --green: #22c55e;
+      --red: #ef4444;
+      --orange: #f59e0b;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(34, 211, 238, 0.18), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 11, 24, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 30px rgba(34, 211, 238, 0.18);
+      flex: 0 0 auto;
+    }
+
+    .brand strong { display: block; font-size: 16px; line-height: 1.2; }
+    .brand small { color: var(--muted); font-size: 12px; }
+
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    nav a {
+      color: #cfd6ff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: white; }
+
+    /* New Controls Area */
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.12); }
+
+    .lang-option { opacity: 0.65; }
+    .lang-option.active { opacity: 1; color: white; }
+    .lang-sep { opacity: 0.45; }
+
+    .timer-widget {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 6px 8px;
+    }
+
+    .timer-widget select {
+      background: rgba(7, 11, 24, 0.55);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      padding: 6px 8px;
+      font: inherit;
+      font-size: 12px;
+      max-width: 160px;
+    }
+
+    #timerDisplay {
+      font-variant-numeric: tabular-nums;
+      font-weight: 900;
+      min-width: 88px;
+      text-align: center;
+      color: white;
+    }
+
+    .timer-btn {
+      border: 0;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 6px 9px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.15s ease;
+    }
+
+    .timer-btn:hover { background: rgba(255, 255, 255, 0.14); }
+
+    .timer-widget.warning #timerDisplay { color: var(--orange); }
+    .timer-widget.danger #timerDisplay {
+      color: var(--red);
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.55; }
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      padding: 48px 0 28px;
+      align-items: start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.18);
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      color: #d8ccff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.05; margin: 16px 0; }
+    h1 .accent { color: var(--accent); }
+
+    .lead { color: #b8c1e6; max-width: 72ch; font-size: 17px; }
+
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+
+    .btn {
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      background: linear-gradient(135deg, var(--violet), var(--accent));
+      color: white;
+      box-shadow: 0 12px 30px rgba(34, 211, 238, 0.18);
+      font-size: 15px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #eaf0ff;
+      box-shadow: none;
+    }
+
+    .btn.small { padding: 10px 14px; font-size: 14px; border-radius: 12px; }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(124, 58, 237, 0.16), rgba(6, 182, 212, 0.10));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .panel h3 { margin: 0 0 14px; font-size: 20px; }
+
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+
+    .metric {
+      background: rgba(7, 11, 24, 0.35);
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 82px;
+    }
+
+    .metric strong { display: block; font-size: 22px; color: white; margin-bottom: 4px; }
+    .metric span { color: var(--muted); font-size: 12px; }
+
+    progress {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      margin-top: 10px;
+    }
+
+    progress::-webkit-progress-bar { background: rgba(255, 255, 255, 0.1); border-radius: 999px; }
+    progress::-webkit-progress-value { background: linear-gradient(90deg, var(--violet), var(--accent)); border-radius: 999px; }
+    progress::-moz-progress-bar { background: var(--accent); border-radius: 999px; }
+
+    .note { color: var(--muted); font-size: 13px; margin-top: 12px; }
+
+    section { padding: 28px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    h2 { font-size: clamp(26px, 3vw, 36px); margin: 0; line-height: 1.15; }
+    .sub { color: var(--muted); margin: 6px 0 0; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 16px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .card h3 { margin: 0 0 10px; font-size: 20px; }
+    .card p { color: #b8c1e6; margin: 0 0 16px; }
+
+    .warn-card {
+      border-color: rgba(245, 158, 11, 0.35);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.10), rgba(18, 26, 51, 0.72));
+    }
+
+    .danger-card {
+      border-color: rgba(239, 68, 68, 0.35);
+      background: linear-gradient(180deg, rgba(239, 68, 68, 0.10), rgba(18, 26, 51, 0.72));
+    }
+
+    .success-card {
+      border-color: rgba(34, 197, 94, 0.35);
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.10), rgba(18, 26, 51, 0.72));
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 850;
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #dbe3ff;
+    }
+
+    .tag.red { background: rgba(239, 68, 68, 0.14); border-color: rgba(239, 68, 68, 0.35); color: #ffd7d7; }
+    .tag.green { background: rgba(34, 197, 94, 0.14); border-color: rgba(34, 197, 94, 0.35); color: #d7ffe6; }
+    .tag.orange { background: rgba(245, 158, 11, 0.14); border-color: rgba(245, 158, 11, 0.35); color: #fff0cc; }
+
+    .mini-list { margin: 0; padding-left: 18px; color: #c8d2f5; }
+    .mini-list li { margin: 7px 0; }
+
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding: 14px;
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      align-items: center;
+    }
+
+    .filter-bar span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    .filter-btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.15s ease;
+    }
+
+    .filter-btn:hover { background: rgba(255, 255, 255, 0.1); }
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--violet), var(--accent));
+      border-color: transparent;
+      color: white;
+    }
+
+    .question-block {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 26px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .q-number {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.22);
+      border: 1px solid rgba(124, 58, 237, 0.45);
+      color: #d8ccff;
+      font-size: 13px;
+      font-weight: 850;
+      margin-bottom: 14px;
+    }
+
+    .q-number.phys {
+      background: rgba(34, 197, 94, 0.18);
+      border-color: rgba(34, 197, 94, 0.45);
+      color: #d7ffe6;
+    }
+
+    .q-number.econ {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: rgba(245, 158, 11, 0.45);
+      color: #fff0cc;
+    }
+
+    .q-part { margin-bottom: 18px; }
+
+    .q-part-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .q-text {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.5;
+      color: #eaf0ff;
+      white-space: pre-wrap;
+    }
+
+    .q-info {
+      background: rgba(124, 58, 237, 0.10);
+      border-left: 4px solid var(--violet);
+      border-radius: 0 14px 14px 0;
+      padding: 16px 18px;
+      margin: 18px 0;
+      color: #dbe3ff;
+      font-size: 15px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    .q-info strong { color: #ffffff; }
+
+    .q-trainer-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .options { display: grid; gap: 10px; }
+
+    .option {
+      text-align: left;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.15s ease;
+      white-space: pre-wrap;
+    }
+
+    .option:hover:not(:disabled) { background: rgba(255, 255, 255, 0.1); }
+    .option.correct { background: rgba(34, 197, 94, 0.18); border-color: rgba(34, 197, 94, 0.55); }
+    .option.wrong { background: rgba(239, 68, 68, 0.18); border-color: rgba(239, 68, 68, 0.55); }
+    .option:disabled { cursor: default; }
+
+    .result-block {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+    }
+
+    .result-block.correct {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+    }
+
+    .result-block.wrong {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+
+    .verdict {
+      font-size: 17px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .verdict.correct { color: #22c55e; }
+    .verdict.wrong { color: #ef4444; }
+
+    .result-row {
+      margin: 6px 0;
+      color: #d7e6ff;
+      font-size: 15px;
+    }
+
+    .result-row strong { color: #ffffff; }
+
+    .source-row {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.18);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .source-row strong { color: #dbe3ff; }
+
+    .summary {
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.14), rgba(18, 26, 51, 0.72));
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .summary .score { font-size: 48px; font-weight: 950; color: #fff; }
+
+    .reset-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      justify-content: flex-end;
+    }
+
+    .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+
+    .check-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      transition: 0.15s ease;
+    }
+
+    .check-item input {
+      width: 20px;
+      height: 20px;
+      margin-top: 3px;
+      accent-color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .check-item label { cursor: pointer; color: #dbe3ff; }
+
+    .check-item.done {
+      opacity: 0.72;
+      background: rgba(34, 211, 238, 0.08);
+      border-color: rgba(34, 211, 238, 0.25);
+    }
+
+    .check-item.done label { text-decoration: line-through; color: #aab5dc; }
+
+    .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+
+    .day {
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      min-height: 112px;
+    }
+
+    .day b {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 6px;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
+
+    .day.critical {
+      border-color: rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.08);
+    }
+
+    .manual-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .manual-card h3 { margin: 0 0 10px; font-size: 20px; }
+    .manual-card p { color: #b8c1e6; margin: 8px 0; white-space: pre-wrap; }
+
+    .answer-hint {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(34, 197, 94, 0.10);
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      color: #d7ffe6;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    .check-input {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.18);
+    }
+
+    .check-input label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .check-input input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    .check-input input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(34, 211, 238, 0.06);
+    }
+
+    .support-card {
+      background: linear-gradient(180deg, rgba(124, 58, 237, 0.18), rgba(34, 211, 238, 0.10));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .support-card h2 { margin-bottom: 10px; }
+    .support-card p { margin: 10px 0; color: #dbe3ff; }
+
+    .phone {
+      color: white;
+      font-weight: 900;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.45);
+    }
+
+    .phone:hover { color: var(--accent); }
+
+    .copy-status { margin-left: 8px; color: var(--green); font-weight: 850; }
+
+    .support-card a { color: var(--accent); font-weight: 800; text-decoration: none; }
+    .support-card a:hover { text-decoration: underline; }
+
+    footer {
+      padding: 30px 0 50px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: 1fr; }
+      nav { gap: 12px; }
+      .top-controls { width: 100%; justify-content: space-between; }
+      .timer-widget select { max-width: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img
+          src="favicon.ico"
+          class="brand-logo"
+          alt="Anti-AI Qwen Academy Logo"
+          onerror="this.style.display='none'"
+        />
+        <div>
+          <strong data-i18n="brandTitle">Anti-AI Qwen Academy</strong>
+          <small data-i18n="brandSub">Free EGE-2027 Projects</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#structure" data-i18n="navStructure">Structure</a>
+        <a href="#changes" data-i18n="navChanges">Important 2027</a>
+        <a href="#criteria" data-i18n="navCriteria">Criteria</a>
+        <a href="#trainer" data-i18n="navTrainer">Trainer</a>
+        <a href="#part2" data-i18n="navPart2">Part 2</a>
+        <a href="#checklist" data-i18n="navChecklist">Checklist</a>
+        <a href="#plan" data-i18n="navPlan">25 Days</a>
+        <a href="#support" data-i18n="navSupport">Support</a>
+      </nav>
+
+      <div class="top-controls">
+        <button id="langToggle" class="lang-btn" type="button" aria-label="Switch Language">
+          <span class="lang-option" data-lang="ru">RU</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-option active" data-lang="en">EN</span>
+        </button>
+
+        <div class="timer-widget" id="timerWidget" role="group" aria-label="Exam Timer">
+          <select id="timerPreset" aria-label="Timer Preset"></select>
+          <span id="timerDisplay">03:00:00</span>
+          <button id="timerToggle" class="timer-btn" type="button">▶</button>
+          <button id="timerReset" class="timer-btn" type="button">↺</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge" data-i18n="badge">Free • HTML • Geography EGE-2027 • 29 Tasks</span>
+
+        <h1 data-i18n="h1">Help you pass <span class="accent">Geography EGE</span> correctly</h1>
+
+        <p class="lead" data-i18n="lead">
+          For each task: first the question, then information about what the task checks, then the trainer.
+          Answer options are shuffled so you cannot guess “always the first one”. The correct answer appears
+          only after your answer.
+        </p>
+
+        <div class="actions">
+          <button class="btn" onclick="scrollToId('trainer')" data-i18n="actionTrainer">Take the trainer</button>
+          <button class="btn secondary" onclick="scrollToId('part2')" data-i18n="actionPart2">Part 2</button>
+          <button class="btn secondary" onclick="scrollToId('structure')" data-i18n="actionStructure">Exam Structure</button>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3 data-i18n="quickStats">Quick Stats</h3>
+
+        <div class="metrics">
+          <div class="metric">
+            <strong id="answeredCount">0/21</strong>
+            <span data-i18n="metricAnswered">auto-questions completed</span>
+          </div>
+          <div class="metric">
+            <strong id="correctCount">0</strong>
+            <span data-i18n="metricCorrect">correct answers</span>
+          </div>
+          <div class="metric">
+            <strong id="checklistProgress">0%</strong>
+            <span data-i18n="metricChecklist">checklist</span>
+          </div>
+        </div>
+
+        <progress id="overall" value="0" max="100"></progress>
+        <p class="note" data-i18n="noteReset">Answers and checklist reset each time the page is opened.</p>
+      </aside>
+    </section>
+
+    <section id="structure">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="structureTitle">Geography EGE Structure</h2>
+          <p class="sub" data-i18n="structureSub">Total 29 tasks: 21 short-answer and 8 extended-response.</p>
+        </div>
+      </div>
+
+      <div class="grid" id="structureGrid"></div>
+    </section>
+
+    <section id="changes">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="changesTitle">What Matters for EGE-2027</h2>
+          <p class="sub" data-i18n="changesSub">Keep these points in mind while preparing. The 2027 structure is identical to 2026.</p>
+        </div>
+      </div>
+
+      <div class="grid" id="changesGrid"></div>
+    </section>
+
+    <section id="criteria">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="criteriaTitle">Criteria and Rules</h2>
+          <p class="sub" data-i18n="criteriaSub">What you need to know when completing tasks.</p>
+        </div>
+      </div>
+
+      <div class="grid" id="criteriaGrid"></div>
+    </section>
+
+    <section id="trainer">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="trainerTitle">Trainer: Part 1</h2>
+          <p class="sub" data-i18n="trainerSub">
+            For each task: <strong>1) question</strong> →
+            <strong>2) information</strong> about what the task checks →
+            <strong>3) trainer</strong>, where you answer yourself.
+            Answer options are shuffled randomly — the correct answer is not always first.
+            Tasks correspond to the EGE-2027 demo version.
+          </p>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <span data-i18n="filterShow">Show:</span>
+        <button class="filter-btn active" data-filter="all" id="filterAll" onclick="setFilter('all', this)"></button>
+        <button class="filter-btn" data-filter="phys" id="filterPhys" onclick="setFilter('phys', this)"></button>
+        <button class="filter-btn" data-filter="econ" id="filterEcon" onclick="setFilter('econ', this)"></button>
+      </div>
+
+      <div class="reset-bar">
+        <button class="btn secondary small" onclick="resetAll()" data-i18n="resetAll">Reset all answers</button>
+      </div>
+
+      <div id="quizContainer"></div>
+      <div id="summaryBox"></div>
+    </section>
+
+    <section id="part2">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="part2Title">Part 2: Tasks 22–29</h2>
+          <p class="sub" data-i18n="part2Sub">
+            These tasks require a full justified solution. Automatic checking of only the final answer is incorrect here:
+            manual checking by criteria is needed. Below are task statements, methodological hints, approximate answers
+            where reliable, and a self-check field.
+          </p>
+        </div>
+      </div>
+
+      <div id="part2Container"></div>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="checklistTitle">EGE-2027 Preparation Checklist</h2>
+          <p class="sub" data-i18n="checklistSub">Tick completed items — the checklist resets on a new page opening.</p>
+        </div>
+      </div>
+
+      <ul class="checklist" id="checklistUl"></ul>
+    </section>
+
+    <section id="plan">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="planTitle">Full 25-Day Course for Grade 11</h2>
+          <p class="sub" data-i18n="planSub">Preparation route according to the EGE-2027 structure.</p>
+        </div>
+      </div>
+
+      <div class="plan-grid" id="planGrid"></div>
+    </section>
+
+    <section id="support">
+      <div class="support-card">
+        <h2 data-i18n="supportTitle">🤝 SUPPORT THE PROJECT 💙</h2>
+        <p data-i18n="supportP1"><strong>The app is free. It was and will remain free.</strong></p>
+        <p data-i18n="supportP2">All apps are free and ad-free. Your help supports offline security and education.</p>
+        <p>
+          <span data-i18n="supportPhoneLabel">📱 TRANSFER BY PHONE NUMBER:</span>
+          <a class="phone" href="tel:89202275676">8-920-227-56-76</a>
+          <button class="btn small" onclick="copyPhone()" data-i18n="copyPhone">📋 Copy number</button>
+          <span id="copyStatus" class="copy-status" aria-live="polite"></span>
+        </p>
+        <p data-i18n="supportP3">✅ Money arrives instantly. No commission. Safe.</p>
+        <p data-i18n="supportP4">❤️ Thanks for your support!</p>
+        <p>🌟 👉 <a href="https://ancf-hue.github.io/" target="_blank" rel="noopener noreferrer" data-i18n="supportCatalog">Catalog of free offline Anti-AI Shield apps</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" data-i18n="footer">
+      Anti-AI Qwen Academy • Free HTML Project • Geography EGE-2027 • 29 Tasks
+    </div>
+  </footer>
+
+  <script>
+    const STORAGE = {
+      answers: "antiIiKvenGeo2027v3Answers",
+      checklist: "antiIiKvenGeo2027v3Checklist",
+      shuffle: "antiIiKvenGeo2027v3Shuffle",
+      manual: "antiIiKvenGeo2027v3Manual"
+    };
+
+    // ============================================================
+    // TRANSLATIONS DICTIONARY
+    // ============================================================
+    const I18N = {
+      en: {
+        docTitle: `Anti-AI Qwen Academy | Geography EGE-2027`,
+        metaDesc: `Free offline trainer and checklist for EGE Geography 2027: exam structure, 21 Part 1 tasks, 8 Part 2 tasks, criteria, preparation plan.`,
+        brandTitle: `Anti-AI Qwen Academy`,
+        brandSub: `Free EGE-2027 Projects`,
+        navStructure: `Structure`,
+        navChanges: `Important 2027`,
+        navCriteria: `Criteria`,
+        navTrainer: `Trainer`,
+        navPart2: `Part 2`,
+        navChecklist: `Checklist`,
+        navPlan: `25 Days`,
+        navSupport: `Support`,
+        badge: `Free • HTML • Geography EGE-2027 • 29 Tasks`,
+        h1: `Help you pass <span class="accent">Geography EGE</span> correctly`,
+        lead: `For each task: first the question, then information about what the task checks, then the trainer. Answer options are shuffled so you cannot guess “always the first one”. The correct answer appears only after your answer.`,
+        actionTrainer: `Take the trainer`,
+        actionPart2: `Part 2`,
+        actionStructure: `Exam Structure`,
+        quickStats: `Quick Stats`,
+        metricAnswered: `auto-questions completed`,
+        metricCorrect: `correct answers`,
+        metricChecklist: `checklist`,
+        noteReset: `Answers and checklist reset each time the page is opened.`,
+        structureTitle: `Geography EGE Structure`,
+        structureSub: `Total 29 tasks: 21 short-answer and 8 extended-response.`,
+        changesTitle: `What Matters for EGE-2027`,
+        changesSub: `Keep these points in mind while preparing. The 2027 structure is identical to 2026.`,
+        criteriaTitle: `Criteria and Rules`,
+        criteriaSub: `What you need to know when completing tasks.`,
+        trainerTitle: `Trainer: Part 1`,
+        trainerSub: `For each task: <strong>1) question</strong> → <strong>2) information</strong> about what the task checks → <strong>3) trainer</strong>, where you answer yourself. Answer options are shuffled randomly — the correct answer is not always first. Tasks correspond to the EGE-2027 demo version.`,
+        filterShow: `Show:`,
+        filterAll: `All`,
+        filterPhys: `Physical Geog.`,
+        filterEcon: `Economic Geog.`,
+        resetAll: `Reset all answers`,
+        part2Title: `Part 2: Tasks 22–29`,
+        part2Sub: `These tasks require a full justified solution. Automatic checking of only the final answer is incorrect here: manual checking by criteria is needed. Below are task statements, methodological hints, approximate answers where reliable, and a self-check field.`,
+        checklistTitle: `EGE-2027 Preparation Checklist`,
+        checklistSub: `Tick completed items — the checklist resets on a new page opening.`,
+        planTitle: `Full 25-Day Course for Grade 11`,
+        planSub: `Preparation route according to the EGE-2027 structure.`,
+        dayPrefix: `Day`,
+        supportTitle: `🤝 SUPPORT THE PROJECT 💙`,
+        supportP1: `<strong>The app is free. It was and will remain free.</strong>`,
+        supportP2: `All apps are free and ad-free. Your help supports offline security and education.`,
+        supportPhoneLabel: `📱 TRANSFER BY PHONE NUMBER:`,
+        copyPhone: `📋 Copy number`,
+        copied: `✓ Copied`,
+        supportP3: `✅ Money arrives instantly. No commission. Safe.`,
+        supportP4: `❤️ Thanks for your support!`,
+        supportCatalog: `Catalog of free offline Anti-AI Shield apps`,
+        footer: `Anti-AI Qwen Academy • Free HTML Project • Geography EGE-2027 • 29 Tasks`,
+
+        // Card Content Translations
+        cardPart1Tag: `Part 1`,
+        cardPart1Title: `21 Short-Answer Tasks`,
+        cardPart1List: [
+          `The answer is a number, sequence of digits, or word (phrase).`,
+          `Sequence of digits — without spaces or commas.`,
+          `Each symbol in a separate cell.`
+        ],
+        cardPart2Tag: `Part 2`,
+        cardPart2Title: `8 Extended-Response Tasks`,
+        cardPart2List: [
+          `Tasks 22–29 require a full solution.`,
+          `You must write the answer and justification.`,
+          `Graded by experts according to FIPI criteria.`
+        ],
+        cardTotalTag: `Total`,
+        cardTotalTitle: `29 Tasks, 180 Minutes`,
+        cardTotalList: [
+          `Time allowed: 3 hours (180 minutes).`,
+          `Permitted: ruler, protractor, non-programmable calculator.`,
+          `Provided: geographical maps and statistical appendices.`
+        ],
+        cardAntiAITag: `Anti-AI`,
+        cardAntiAITitle: `Check, Don't Copy`,
+        cardAntiAIText: `Ready-made AI solutions often contain geographical errors, wrong coordinates, and invented facts. For EGE-2027, you need to learn to check every statement.`,
+
+        cardStructTag: `Structure`,
+        cardStructTitle: `29 Tasks in Exam`,
+        cardStructText: `21 Part 1 short-answer tasks + 8 Part 2 extended-response tasks. Maximum raw score: 38.`,
+        
+        cardFormsTag: `Part 1`,
+        cardFormsTitle: `Answer Forms`,
+        cardFormsText: `Number, sequence of digits, or word (phrase). Without spaces or commas.`,
+        
+        cardExtTag: `Part 2`,
+        cardExtTitle: `Extended Solution`,
+        cardExtText: `Tasks 22–29 require a full answer with justification. Graded by FIPI criteria.`,
+        
+        cardMapTag: `Maps`,
+        cardMapTitle: `Working with Map`,
+        cardMapList: [
+          `Tasks 1, 4, 11, 14, 19, 20, 28 involve map work.`,
+          `Must be able to read topographic maps and time zones.`,
+          `Provided: administrative map of RF and political world map.`
+        ],
+        
+        cardToolsTag: `Tools`,
+        cardToolsTitle: `What Is Allowed`,
+        cardToolsList: [
+          `Ruler.`,
+          `Protractor.`,
+          `Non-programmable calculator.`,
+          `Geographical maps.`,
+          `Statistical appendices to CMM.`
+        ],
+        
+        cardSheetTag: `Part 2`,
+        cardSheetTitle: `Tasks 22–29`,
+        cardSheetText: `Solutions are written in Answer Sheet No. 2. Write clearly, legibly, and with full justification.`,
+        
+        cardThreshTag: `Thresholds`,
+        cardThreshTitle: `Minimum Threshold`,
+        cardThreshText: `Minimum thresholds and conversion of raw scores to test scores are set officially. Before publishing, check them against Rosobrnadzor orders and FIPI materials for 2027.`,
+        
+        cardWarnTag: `Attention`,
+        cardWarnTitle: `Typical Mistakes`,
+        cardWarnText: `Wrong coordinates, errors in map reading, confusion in time zones, incorrect calculations. Check every step.`,
+
+        cardCritShortTag: `Part 1`,
+        cardCritShortTitle: `Short Answer`,
+        cardCritShortList: [
+          `Number — integer or decimal fraction.`,
+          `Sequence of digits — no spaces or commas.`,
+          `Word (phrase) — without spaces if specified in instructions.`,
+          `Each symbol in a separate cell.`
+        ],
+        
+        cardCritExtTag: `Part 2`,
+        cardCritExtTitle: `Tasks 22–29`,
+        cardCritExtList: [
+          `Full solution in Sheet No. 2.`,
+          `Write the task number, then the solution.`,
+          `Solution must be justified.`,
+          `Write the answer clearly and legibly.`
+        ],
+        
+        cardCritGradeTag: `Grading`,
+        cardCritGradeTitle: `How Grading Works`,
+        cardCritGradeList: [
+          `Part 1: 1–2 points per task (total 23 points).`,
+          `Part 2: 1 to 3 points per task (total 15 points).`,
+          `Maximum raw score: 38.`
+        ],
+        
+        cardCritToolsTag: `Tools`,
+        cardCritToolsTitle: `What Is Allowed`,
+        cardCritToolsList: [
+          `Ruler, protractor.`,
+          `Non-programmable calculator.`,
+          `Geographical maps.`,
+          `Scratch paper (not graded).`
+        ],
+        
+        cardCritKnowTag: `Knowledge`,
+        cardCritKnowTitle: `What to Remember`,
+        cardCritKnowList: [
+          `Geographical coordinates of major objects.`,
+          `Time zones of Russia and the world.`,
+          `Natural resources and their location.`,
+          `Population and urbanization.`,
+          `Regional economy of Russia.`
+        ],
+        
+        cardCritSelfTag: `Verification`,
+        cardCritSelfTitle: `How to Check Yourself`,
+        cardCritSelfList: [
+          `Check coordinates on the map.`,
+          `Check resource availability calculations.`,
+          `Check time zone.`,
+          `Judge whether the result is plausible.`
+        ],
+        
+        cardCritErrTag: `Attention`,
+        cardCritErrTitle: `Typical Mistakes`,
+        cardCritErrList: [
+          `Confusion between latitude and longitude.`,
+          `Errors in determining hemisphere.`,
+          `Incorrect reading of topographic map.`,
+          `Errors in per capita calculations.`
+        ],
+        
+        cardCritFrameTag: `Structure`,
+        cardCritFrameTitle: `Framework for Solving Part 2`,
+        cardCritFrameList: [
+          `1. Read condition and highlight key data.`,
+          `2. Write down reasoning process.`,
+          `3. Justify each step.`,
+          `4. Write the answer.`
+        ],
+
+        // Quiz Labels
+        qLabel1: `1. Question`,
+        qLabel2: `2. Task Info`,
+        qLabel3: `3. Trainer — Answer Yourself`,
+        resCorrect: `✅ Correct!`,
+        resWrong: `❌ Wrong.`,
+        resAns: `Correct answer:`,
+        resExp: `Explanation:`,
+        resSrc: `Source:`,
+        sumDone: `Auto-questions completed:`,
+        sumOf: `of`,
+        sumCorr: `Correct answers:`,
+        sumFin: `Answer all auto-questions to see the final result.`,
+        verExc: `Excellent result! You are well prepared for EGE-2027.`,
+        verGood: `Good, but analyze the task mistakes.`,
+        verNeed: `You need to carefully work through the EGE-2027 tasks.`,
+        confReset: `Reset all answers and shuffle options again?`,
+        errCopy: `Could not copy automatically. Number: `,
+        
+        // Part 2 Labels
+        p2Tag: `Part 2`,
+        p2Task: `Task`,
+        p2Hint: `Verification / Hint:`,
+        p2InputLbl: `Your final answer or short self-check note (this session):`,
+        p2Placeholder: `Enter your answer or note...`,
+
+        // Topic Labels
+        topicPhys: `Physical Geography`,
+        topicEcon: `Economic Geography`,
+
+        // Timer Labels
+        timerGeo: `Geography — 180 min`,
+        timerPractice: `Practice — 60 min`,
+        timerUp: `Time is up!`,
+        timerStart: `Start timer`,
+        timerPause: `Pause timer`,
+        timerReset: `Reset timer`
+      },
+      ru: {
+        docTitle: `Анти-ИИ Квен Академия | География ЕГЭ-2027`,
+        metaDesc: `Бесплатный тренажёр и чек-лист подготовки к ЕГЭ по географии 2027: структура экзамена, 21 задание части 1 с кратким ответом, 8 заданий части 2 с развёрнутым решением, критерии, план подготовки.`,
+        brandTitle: `Анти-ИИ Квен Академия`,
+        brandSub: `Бесплатные проекты ЕГЭ-2027`,
+        navStructure: `Структура`,
+        navChanges: `Важно 2027`,
+        navCriteria: `Критерии`,
+        navTrainer: `Тренажёр`,
+        navPart2: `Часть 2`,
+        navChecklist: `Чек-лист`,
+        navPlan: `25 дней`,
+        navSupport: `Поддержать`,
+        badge: `Бесплатно • HTML • География ЕГЭ-2027 • 29 заданий`,
+        h1: `Поможем сдать <span class="accent">ЕГЭ по географии</span> правильно`,
+        lead: `По каждому заданию: сначала вопрос, потом информация о том, что проверяет это задание, потом тренажёр. Варианты ответов перемешиваются, чтобы нельзя было угадать «всегда первый». Правильный ответ появляется только после твоего ответа.`,
+        actionTrainer: `Пройти тренажёр`,
+        actionPart2: `Часть 2`,
+        actionStructure: `Структура экзамена`,
+        quickStats: `Быстрая статистика`,
+        metricAnswered: `автовопросов пройдено`,
+        metricCorrect: `правильных ответов`,
+        metricChecklist: `чек-лист`,
+        noteReset: `Ответы и чек-лист сбрасываются при каждом открытии страницы.`,
+        structureTitle: `Структура ЕГЭ по географии`,
+        structureSub: `Всего 29 заданий: 21 с кратким ответом и 8 с развёрнутым решением.`,
+        changesTitle: `Что важно учесть в ЕГЭ-2027`,
+        changesSub: `Эти пункты нужно держать в голове при подготовке. Структура 2027 года идентична 2026.`,
+        criteriaTitle: `Критерии и правила`,
+        criteriaSub: `Что важно знать при выполнении заданий.`,
+        trainerTitle: `Тренажёр: часть 1`,
+        trainerSub: `По каждому заданию: <strong>1) вопрос</strong> → <strong>2) информация</strong> о том, что проверяет задание → <strong>3) тренажёр</strong>, где ты отвечаешь сам. Варианты ответов перемешиваются случайно — правильный ответ не всегда стоит первым. Задания соответствуют демоверсии ЕГЭ-2027.`,
+        filterShow: `Показать:`,
+        filterAll: `Все`,
+        filterPhys: `Физическая география`,
+        filterEcon: `Экономическая география`,
+        resetAll: `Сбросить все ответы`,
+        part2Title: `Часть 2: задания 22–29`,
+        part2Sub: `Эти задания требуют полного обоснованного решения. Автоматическая проверка одного финального ответа здесь некорректна: нужна ручная проверка по критериям. Ниже — условия заданий, методические подсказки, ориентировочные ответы (где они надёжны) и поле для самопроверки.`,
+        checklistTitle: `Чек-лист подготовки к ЕГЭ-2027`,
+        checklistSub: `Отмечай выполненные пункты — при новом открытии страницы чек-лист сбросится.`,
+        planTitle: `Полный курс 25 дней для 11 класса`,
+        planSub: `Маршрут подготовки по структуре ЕГЭ-2027.`,
+        dayPrefix: `День`,
+        supportTitle: `🤝 ПОДДЕРЖАТЬ ПРОЕКТ 💙`,
+        supportP1: `<strong>Приложение бесплатное. Было и останется.</strong>`,
+        supportP2: `Все приложения бесплатны и без рекламы. Ваша помощь помогает развитию офлайн-безопасности и образования.`,
+        supportPhoneLabel: `📱 ПЕРЕВОД ПО НОМЕРУ ТЕЛЕФОНА:`,
+        copyPhone: `📋 Копировать номер`,
+        copied: `✓ Скопировано`,
+        supportP3: `✅ Деньги придут мгновенно. Без комиссии. Безопасно.`,
+        supportP4: `❤️ Спасибо за поддержку!`,
+        supportCatalog: `Каталог бесплатных офлайн-приложений Anti-AI Shield`,
+        footer: `Анти-ИИ Квен Академия • Бесплатный HTML-проект • География ЕГЭ-2027 • 29 заданий`,
+
+        // Card Content Translations
+        cardPart1Tag: `Часть 1`,
+        cardPart1Title: `21 задание с кратким ответом`,
+        cardPart1List: [
+          `Ответ — число, последовательность цифр или слово (словосочетание).`,
+          `Последовательность цифр — без пробелов и запятых.`,
+          `Каждый символ — в отдельной клетке.`
+        ],
+        cardPart2Tag: `Часть 2`,
+        cardPart2Title: `8 заданий с развёрнутым решением`,
+        cardPart2List: [
+          `Задания 22–29 — полное решение.`,
+          `Нужно записать ответ и обоснование.`,
+          `Проверяется экспертами по критериям ФИПИ.`
+        ],
+        cardTotalTag: `Итого`,
+        cardTotalTitle: `29 заданий, 180 минут`,
+        cardTotalList: [
+          `Время выполнения — 3 часа (180 минут).`,
+          `Разрешены линейка, транспортир, непрограммируемый калькулятор.`,
+          `Выдаются географические карты и статистические приложения.`
+        ],
+        cardAntiAITag: `Анти-ИИ`,
+        cardAntiAITitle: `Проверяй, а не копируй`,
+        cardAntiAIText: `Готовые ИИ-решения часто содержат географические ошибки, неверные координаты и выдуманные факты. Для ЕГЭ-2027 нужно учиться проверять каждое утверждение.`,
+
+        cardStructTag: `Структура`,
+        cardStructTitle: `29 заданий в работе`,
+        cardStructText: `21 задание части 1 с кратким ответом + 8 заданий части 2 с развёрнутым решением. Максимальный первичный балл — 38.`,
+        
+        cardFormsTag: `Часть 1`,
+        cardFormsTitle: `Формы ответа`,
+        cardFormsText: `Число, последовательность цифр или слово (словосочетание). Без пробелов и запятых.`,
+        
+        cardExtTag: `Часть 2`,
+        cardExtTitle: `Развёрнутое решение`,
+        cardExtText: `Задания 22–29 требуют полного ответа с обоснованием. Оцениваются по критериям ФИПИ.`,
+        
+        cardMapTag: `Карты`,
+        cardMapTitle: `Работа с картой`,
+        cardMapList: [
+          `Задания 1, 4, 11, 14, 19, 20, 28 — работа с картами.`,
+          `Нужно уметь читать топографические карты и часовые пояса.`,
+          `Выдаются административная карта РФ и политическая карта мира.`
+        ],
+        
+        cardToolsTag: `Инструменты`,
+        cardToolsTitle: `Что разрешено`,
+        cardToolsList: [
+          `Линейка.`,
+          `Транспортир.`,
+          `Непрограммируемый калькулятор.`,
+          `Географические карты.`,
+          `Статистические приложения к КИМ.`
+        ],
+        
+        cardSheetTag: `Часть 2`,
+        cardSheetTitle: `Задания 22–29`,
+        cardSheetText: `Решения записываются в бланк ответов № 2. Нужно писать чётко, разборчиво и с полным обоснованием.`,
+        
+        cardThreshTag: `Пороги`,
+        cardThreshTitle: `Минимальный порог`,
+        cardThreshText: `Минимальные пороги и перевод первичных баллов в тестовые устанавливаются официально. Перед публикацией сверяйте их с приказами Рособрнадзора и материалами ФИПИ на 2027 год.`,
+        
+        cardWarnTag: `Внимание`,
+        cardWarnTitle: `Типичные ошибки`,
+        cardWarnText: `Неверные координаты, ошибки при работе с картой, путаница в часовых поясах, неверные расчёты. Проверяй каждое действие.`,
+
+        cardCritShortTag: `Часть 1`,
+        cardCritShortTitle: `Краткий ответ`,
+        cardCritShortList: [
+          `Число — целое или десятичная дробь.`,
+          `Последовательность цифр — без пробелов и запятых.`,
+          `Слово (словосочетание) — без пробелов, если указано в инструкции.`,
+          `Каждый символ — в отдельной клетке.`
+        ],
+        
+        cardCritExtTag: `Часть 2`,
+        cardCritExtTitle: `Задания 22–29`,
+        cardCritExtList: [
+          `Полное решение в бланке № 2.`,
+          `Записывается номер задания, затем решение.`,
+          `Решение должно быть обоснованным.`,
+          `Ответ записывается чётко и разборчиво.`
+        ],
+        
+        cardCritGradeTag: `Оценка`,
+        cardCritGradeTitle: `Как оценивают`,
+        cardCritGradeList: [
+          `Часть 1: 1–2 балла за задание (всего 23 балла).`,
+          `Часть 2: от 1 до 3 баллов за задание (всего 15 баллов).`,
+          `Максимальный первичный балл — 38.`
+        ],
+        
+        cardCritToolsTag: `Инструменты`,
+        cardCritToolsTitle: `Что разрешено`,
+        cardCritToolsList: [
+          `Линейка, транспортир.`,
+          `Непрограммируемый калькулятор.`,
+          `Географические карты.`,
+          `Черновик (не учитывается).`
+        ],
+        
+        cardCritKnowTag: `Знания`,
+        cardCritKnowTitle: `Что нужно помнить`,
+        cardCritKnowList: [
+          `Географические координаты крупных объектов.`,
+          `Часовые пояса России и мира.`,
+          `Природные ресурсы и их размещение.`,
+          `Население и урбанизация.`,
+          `Хозяйство регионов России.`
+        ],
+        
+        cardCritSelfTag: `Проверка`,
+        cardCritSelfTitle: `Как проверять себя`,
+        cardCritSelfList: [
+          `Проверь координаты по карте.`,
+          `Проверь расчёты ресурсообеспеченности.`,
+          `Проверь часовой пояс.`,
+          `Оцени правдоподобность результата.`
+        ],
+        
+        cardCritErrTag: `Внимание`,
+        cardCritErrTitle: `Типичные ошибки`,
+        cardCritErrList: [
+          `Путаница между широтой и долготой.`,
+          `Ошибки в определении полушария.`,
+          `Неверное чтение топографической карты.`,
+          `Ошибки в расчётах на душу населения.`
+        ],
+        
+        cardCritFrameTag: `Структура`,
+        cardCritFrameTitle: `Каркас решения части 2`,
+        cardCritFrameList: [
+          `1. Прочитать условие и выделить ключевые данные.`,
+          `2. Записать ход рассуждений.`,
+          `3. Обосновать каждый шаг.`,
+          `4. Записать ответ.`
+        ],
+
+        // Quiz Labels
+        qLabel1: `1. Вопрос`,
+        qLabel2: `2. Информация о задании`,
+        qLabel3: `3. Тренажёр — ответь сам`,
+        resCorrect: `✅ Правильно!`,
+        resWrong: `❌ Неправильно.`,
+        resAns: `Правильный ответ:`,
+        resExp: `Пояснение:`,
+        resSrc: `Источник:`,
+        sumDone: `Пройдено автовопросов:`,
+        sumOf: `из`,
+        sumCorr: `Правильных ответов:`,
+        sumFin: `Ответь на все автовопросы, чтобы увидеть итог.`,
+        verExc: `Отличный результат! Ты хорошо готов к ЕГЭ-2027.`,
+        verGood: `Хорошо, но разбери ошибки по заданиям.`,
+        verNeed: `Нужно внимательно проработать задания ЕГЭ-2027.`,
+        confReset: `Сбросить все ответы и перемешать варианты заново?`,
+        errCopy: `Не удалось скопировать автоматически. Номер: `,
+        
+        // Part 2 Labels
+        p2Tag: `Часть 2`,
+        p2Task: `Задание`,
+        p2Hint: `Проверка / подсказка:`,
+        p2InputLbl: `Твой итог для самопроверки (в этой сессии):`,
+        p2Placeholder: `Впиши свой ответ или пометку...`,
+
+        // Topic Labels
+        topicPhys: `Физическая география`,
+        topicEcon: `Экономическая география`,
+
+        // Timer Labels
+        timerGeo: `География — 180 мин`,
+        timerPractice: `Тренировка — 60 мин`,
+        timerUp: `Время вышло!`,
+        timerStart: `Запустить таймер`,
+        timerPause: `Пауза таймера`,
+        timerReset: `Сброс таймера`
+      }
+    };
+
+    let currentLang = "en";
+
+    function loc(key) {
+      return I18N[currentLang][key] || "";
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, function (m) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        }[m];
+      });
+    }
+
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // ============================================================
+    // DATA STRUCTURES (Translated Content)
+    // ============================================================
+    
+    const structureCardsData = [
+      { tagKey: "cardPart1Tag", titleKey: "cardPart1Title", listKey: "cardPart1List", cls: "warn-card", tagCls: "orange" },
+      { tagKey: "cardPart2Tag", titleKey: "cardPart2Title", listKey: "cardPart2List", cls: "danger-card", tagCls: "red" },
+      { tagKey: "cardTotalTag", titleKey: "cardTotalTitle", listKey: "cardTotalList", cls: "success-card", tagCls: "green" },
+      { tagKey: "cardAntiAITag", titleKey: "cardAntiAITitle", textKey: "cardAntiAIText", cls: "", tagCls: "" }
+    ];
+
+    const changesCardsData = [
+      { tagKey: "cardStructTag", titleKey: "cardStructTitle", textKey: "cardStructText", cls: "success-card", tagCls: "green" },
+      { tagKey: "cardFormsTag", titleKey: "cardFormsTitle", textKey: "cardFormsText", cls: "warn-card", tagCls: "orange" },
+      { tagKey: "cardExtTag", titleKey: "cardExtTitle", textKey: "cardExtText", cls: "warn-card", tagCls: "orange" },
+      { tagKey: "cardMapTag", titleKey: "cardMapTitle", listKey: "cardMapList", cls: "success-card", tagCls: "green" },
+      { tagKey: "cardToolsTag", titleKey: "cardToolsTitle", listKey: "cardToolsList", cls: "success-card", tagCls: "green" },
+      { tagKey: "cardSheetTag", titleKey: "cardSheetTitle", textKey: "cardSheetText", cls: "", tagCls: "" },
+      { tagKey: "cardThreshTag", titleKey: "cardThreshTitle", textKey: "cardThreshText", cls: "warn-card", tagCls: "orange" },
+      { tagKey: "cardWarnTag", titleKey: "cardWarnTitle", textKey: "cardWarnText", cls: "danger-card", tagCls: "red" }
+    ];
+
+    const criteriaCardsData = [
+      { tagKey: "cardCritShortTag", titleKey: "cardCritShortTitle", listKey: "cardCritShortList", cls: "", tagCls: "" },
+      { tagKey: "cardCritExtTag", titleKey: "cardCritExtTitle", listKey: "cardCritExtList", cls: "warn-card", tagCls: "orange" },
+      { tagKey: "cardCritGradeTag", titleKey: "cardCritGradeTitle", listKey: "cardCritGradeList", cls: "danger-card", tagCls: "red" },
+      { tagKey: "cardCritToolsTag", titleKey: "cardCritToolsTitle", listKey: "cardCritToolsList", cls: "", tagCls: "" },
+      { tagKey: "cardCritKnowTag", titleKey: "cardCritKnowTitle", listKey: "cardCritKnowList", cls: "success-card", tagCls: "green" },
+      { tagKey: "cardCritSelfTag", titleKey: "cardCritSelfTitle", listKey: "cardCritSelfList", cls: "success-card", tagCls: "green" },
+      { tagKey: "cardCritErrTag", titleKey: "cardCritErrTitle", listKey: "cardCritErrList", cls: "danger-card", tagCls: "red" },
+      { tagKey: "cardCritFrameTag", titleKey: "cardCritFrameTitle", listKey: "cardCritFrameList", cls: "", tagCls: "" }
+    ];
+
+    const checklistItemsData = [
+      { key: "ch1", labelEn: "Reviewed geographic coordinates and their determination on the map", labelRu: "Повторил географические координаты и их определение по карте" },
+      { key: "ch2", labelEn: "Practiced reading topographic maps", labelRu: "Отработал чтение топографических карт" },
+      { key: "ch3", labelEn: "Reviewed time zones of Russia and the world", labelRu: "Повторил часовые пояса России и мира" },
+      { key: "ch4", labelEn: "Learned major rivers, lakes, and mountains of continents", labelRu: "Выучил крупные реки, озёра и горы материков" },
+      { key: "ch5", labelEn: "Practiced natural resources and their location", labelRu: "Отработал природные ресурсы и их размещение" },
+      { key: "ch6", labelEn: "Reviewed population of the world and Russia, urbanization", labelRu: "Повторил население мира и России, урбанизацию" },
+      { key: "ch7", labelEn: "Practiced population migrations", labelRu: "Отработал миграции населения" },
+      { key: "ch8", labelEn: "Reviewed main settlement belt of Russia", labelRu: "Повторил основную полосу расселения России" },
+      { key: "ch9", labelEn: "Practiced economic structure and sectors", labelRu: "Отработал структуру хозяйства и сектора экономики" },
+      { key: "ch10", labelEn: "Reviewed regions of Russia and their economy", labelRu: "Повторил регионы России и их хозяйство" },
+      { key: "ch11", labelEn: "Practiced resource availability and its calculation", labelRu: "Отработал ресурсообеспеченность и её расчёт" },
+      { key: "ch12", labelEn: "Reviewed demographic indicators of countries", labelRu: "Повторил демографические показатели стран" },
+      { key: "ch13", labelEn: "Practiced geological chronology", labelRu: "Отработал геологическую хронологию" },
+      { key: "ch14", labelEn: "Checked work with wind roses", labelRu: "Проверил работу с розами ветров" },
+      { key: "ch15", labelEn: "Reviewed sunrise and solstice days", labelRu: "Повторил восход Солнца и день солнцестояния" },
+      { key: "ch16", labelEn: "Practiced climate zones", labelRu: "Отработал климатические пояса" },
+      { key: "ch17", labelEn: "Performed oral analysis of conditions in 3–4 minutes", labelRu: "Провёл устный анализ условия за 3–4 минуты" },
+      { key: "ch18", labelEn: "Checked that there are no geographical errors in the solution", labelRu: "Проверил, что в решении нет географических ошибок" },
+      { key: "ch19", labelEn: "Made sure all steps of the solution are justified", labelRu: "Убедился, что все шаги решения обоснованы" },
+      { key: "ch20", labelEn: "Solved 21 Part 1 tasks under time", labelRu: "Решил 21 задание части 1 на время" },
+      { key: "ch21", labelEn: "Memorized structure: 21 Part 1 tasks + 8 Part 2 tasks = 29", labelRu: "Запомнил структуру: 21 задание части 1 + 8 заданий части 2 = 29" }
+    ];
+
+    const planDaysData = [
+      { day: 1, critical: true, en: "Diagnostics: exam structure, 21 Part 1 tasks + 8 Part 2 tasks, weak topics.", ru: "Диагностика: структура экзамена, 21 задание части 1 + 8 заданий части 2, слабые темы." },
+      { day: 2, critical: false, en: "Geographic coordinates and working with map.", ru: "Географические координаты и работа с картой." },
+      { day: 3, critical: false, en: "Topographic maps, scale, azimuth.", ru: "Топографические карты, масштаб, азимут." },
+      { day: 4, critical: false, en: "Time zones of Russia and the world.", ru: "Часовые пояса России и мира." },
+      { day: 5, critical: false, en: "Lithosphere and relief. Geological chronology.", ru: "Литосфера и рельеф. Геологическая хронология." },
+      { day: 6, critical: false, en: "Atmosphere and climate. Climate zones.", ru: "Атмосфера и климат. Климатические пояса." },
+      { day: 7, critical: false, en: "Hydrosphere. Rivers and lakes of continents.", ru: "Гидросфера. Реки и озёра материков." },
+      { day: 8, critical: false, en: "Biosphere and natural zones.", ru: "Биосфера и природные зоны." },
+      { day: 9, critical: false, en: "Natural resources of the world and Russia.", ru: "Природные ресурсы мира и России." },
+      { day: 10, critical: false, en: "World population: dynamics, structure, urbanization.", ru: "Население мира: динамика, структура, урбанизация." },
+      { day: 11, critical: false, en: "Population migrations.", ru: "Миграции населения." },
+      { day: 12, critical: false, en: "Russia's population. Main settlement belt.", ru: "Население России. Основная полоса расселения." },
+      { day: 13, critical: false, en: "Economic structure. Sectors of economy.", ru: "Структура хозяйства. Сектора экономики." },
+      { day: 14, critical: false, en: "Fuel-Energy Complex, metallurgy, mechanical engineering.", ru: "ТЭК, металлургия, машиностроение." },
+      { day: 15, critical: true, en: "Chemical, forestry, light industry.", ru: "Химическая, лесная, лёгкая промышленность." },
+      { day: 16, critical: true, en: "Agriculture and transport.", ru: "Сельское хозяйство и транспорт." },
+      { day: 17, critical: true, en: "Regions of Russia: economy and specialization.", ru: "Регионы России: хозяйство и специализация." },
+      { day: 18, critical: true, en: "Resource availability and its calculation.", ru: "Ресурсообеспеченность и её расчёт." },
+      { day: 19, critical: true, en: "Demographic indicators of countries.", ru: "Демографические показатели стран." },
+      { day: 20, critical: true, en: "Countries of the world: economy and population.", ru: "Страны мира: экономика и население." },
+      { day: 21, critical: true, en: "Working with wind roses and climograms.", ru: "Работа с розами ветров и климатограммами." },
+      { day: 22, critical: true, en: "Sunrise and solstice days.", ru: "Восход Солнца и дни солнцестояния." },
+      { day: 23, critical: false, en: "Full practice test: Part 1 under time.", ru: "Полный пробник: часть 1 на время." },
+      { day: 24, critical: false, en: "Full practice test: Part 2 under time.", ru: "Полный пробник: часть 2 на время." },
+      { day: 25, critical: false, en: "Final checklist and mistake analysis.", ru: "Финальный чек-лист и разбор ошибок." }
+    ];
+
+    // Quiz Data with Separate Options Arrays for RU and EN
+    const quizRaw = [
+      {
+        id: 1, topic: "phys", task: 1,
+        en: {
+          text: `City Onda has geographic coordinates 5° 12′ N lat. 74° 45′ W long. Determine which country's territory this city is located in.`,
+          info: `Task 1 checks ability to determine country by geographic coordinates. 5° N lat. — Northern Hemisphere, 74° W long. — Western Hemisphere, northern South America.`,
+          explanation: `5° N lat. and 74° W long. is territory of Colombia. City Onda is in Colombia.`,
+          source: `EGE-2027 Demo Version, Task 1`
+        },
+        ru: {
+          text: `Город Онда имеет географические координаты 5° 12′ с.ш. 74° 45′ з.д. Определите, на территории какого государства находится этот город.`,
+          info: `Задание 1 проверяет умение определять страну по географическим координатам. 5° с.ш. — Северное полушарие, 74° з.д. — Западное полушарие, север Южной Америки.`,
+          explanation: `5° с.ш. и 74° з.д. — это территория Колумбии. Город Онда находится в Колумбии.`,
+          source: `Демоверсия ЕГЭ-2027, задание 1`
+        },
+        enOptions: ["Colombia", "Venezuela", "Ecuador", "Peru"],
+        ruOptions: ["Колумбия", "Венесуэла", "Эквадор", "Перу"],
+        correctIndex: 0
+      },
+      {
+        id: 2, topic: "phys", task: 2,
+        en: {
+          text: `Meteorological stations 1, 2 and 3 simultaneously measure water vapor content in 1 m³ of air and determine relative humidity. Obtained values are shown in table.\n\nStation 1: 7.4 g, 87 %\nStation 2: 18.3 g, 87 %\nStation 3: 10.2 g, 87 %\n\nArrange these stations in order of increasing air temperature on them (from lowest to highest).`,
+          info: `Task 2 checks ability to analyze humidity data. With same relative humidity, greater water vapor content means higher air temperature.`,
+          explanation: `Relative humidity everywhere 87 %. Water vapor content: 7.4 → 10.2 → 18.3 g. The more vapor air can hold at same relative humidity, the higher its temperature. Order of increase: 1 → 3 → 2.`,
+          source: `EGE-2027 Demo Version, Task 2`
+        },
+        ru: {
+          text: `На метеостанциях 1, 2 и 3 одновременно проводят измерения содержания водяного пара в 1 м³ воздуха и определяют относительную влажность воздуха. Полученные значения показаны в таблице.\n\nМетеостанция 1: 7,4 г, 87 %\nМетеостанция 2: 18,3 г, 87 %\nМетеостанция 3: 10,2 г, 87 %\n\nРасположите эти метеостанции в порядке повышения температуры воздуха на них (от наиболее низкой к наиболее высокой).`,
+          info: `Задание 2 проверяет умение анализировать данные о влажности. При одинаковой относительной влажности чем больше содержание водяного пара, тем выше температура воздуха.`,
+          explanation: `Относительная влажность везде 87 %. Содержание водяного пара: 7,4 → 10,2 → 18,3 г. Чем больше пара способен вмещать воздух при той же относительной влажности, тем выше его температура. Порядок повышения: 1 → 3 → 2.`,
+          source: `Демоверсия ЕГЭ-2027, задание 2`
+        },
+        enOptions: ["1, 3, 2", "3, 2, 1", "1, 2, 3", "2, 1, 3"],
+        ruOptions: ["1, 3, 2", "3, 2, 1", "1, 2, 3", "2, 1, 3"],
+        correctIndex: 0
+      },
+      {
+        id: 3, topic: "phys", task: 3,
+        en: {
+          text: `Sum of active temperatures is annual sum of average daily air or soil temperatures exceeding certain threshold. Higher sum of active temperatures allows growing more heat-loving agricultural crops. Arrange listed Russian regions in order of increasing favorability of natural conditions for growing heat-loving crops.\n\n1) Pskov region\n2) Tula region\n3) Stavropol Krai`,
+          info: `Task 3 checks knowledge of patterns of change in sum of active temperatures. It increases from north to south.`,
+          explanation: `Pskov region (north) → Tula region (middle lane) → Stavropol Krai (south). Order of increasing favorability: 1, 2, 3.`,
+          source: `EGE-2027 Demo Version, Task 3`
+        },
+        ru: {
+          text: `Сумма активных температур — это годовая сумма средних суточных температур воздуха или почвы, превышающих определённый порог. Чем выше сумма активных температур, тем более теплолюбивые сельскохозяйственные культуры можно выращивать. Расположите перечисленные регионы России в порядке повышения степени благоприятности их природных условий для выращивания теплолюбивых культур.\n\n1) Псковская область\n2) Тульская область\n3) Ставропольский край`,
+          info: `Задание 3 проверяет знание закономерностей изменения суммы активных температур. Она увеличивается с севера на юг.`,
+          explanation: `Псковская область (север) → Тульская область (средняя полоса) → Ставропольский край (юг). Порядок повышения благоприятности: 1, 2, 3.`,
+          source: `Демоверсия ЕГЭ-2027, задание 3`
+        },
+        enOptions: ["1, 2, 3", "3, 2, 1", "2, 1, 3", "1, 3, 2"],
+        ruOptions: ["1, 2, 3", "3, 2, 1", "2, 1, 3", "1, 3, 2"],
+        correctIndex: 0
+      },
+      {
+        id: 4, topic: "phys", task: 4,
+        en: {
+          text: `Establish correspondence between peninsula and its designation on world map.\n\nPENINSULA\nA) Labrador\nB) Hindustan\nC) Cape York\n\nDESIGNATION ON MAP\n1) 1\n2) 2\n3) 3\n4) 4`,
+          info: `Task 4 checks knowledge of geography of large peninsulas. Labrador — North America, Hindustan — South Asia, Cape York — Australia.`,
+          explanation: `Labrador (A) — digit 1. Hindustan (B) — digit 3. Cape York (C) — digit 4.`,
+          source: `EGE-2027 Demo Version, Task 4`
+        },
+        ru: {
+          text: `Установите соответствие между полуостровом и его обозначением на карте мира.\n\nПОЛУОСТРОВ\nА) Лабрадор\nБ) Индостан\nВ) Кейп-Йорк\n\nОБОЗНАЧЕНИЕ НА КАРТЕ\n1) 1\n2) 2\n3) 3\n4) 4`,
+          info: `Задание 4 проверяет знание географии крупных полуостровов. Лабрадор — Северная Америка, Индостан — Южная Азия, Кейп-Йорк — Австралия.`,
+          explanation: `Лабрадор (А) — цифра 1. Индостан (Б) — цифра 3. Кейп-Йорк (В) — цифра 4.`,
+          source: `Демоверсия ЕГЭ-2027, задание 4`
+        },
+        enOptions: ["A-1, B-3, C-4", "A-2, B-1, C-4", "A-1, B-4, C-3", "A-3, B-1, C-2"],
+        ruOptions: ["А-1, Б-3, В-4", "А-2, Б-1, В-4", "А-1, Б-4, В-3", "А-3, Б-1, В-2"],
+        correctIndex: 0
+      },
+      {
+        id: 5, topic: "phys", task: 5,
+        en: {
+          text: `Read text in which series of words is missing. Choose from list words that must be inserted into blanks.\n\nAir surrounding Earth has significant mass and therefore exerts pressure on earth surface. Normal atmospheric pressure is considered equal to pressure of mercury column height (A) mm at sea level at temperature 0 °C at latitude 45°. With increase in absolute altitude atmospheric pressure (B). At Earth surface atmospheric pressure distributes unevenly forming belts of high and low pressure. Increased atmospheric pressure throughout year prevails in tropical and (C) latitudes.\n\nWord list:\n1) temperate\n2) arctic and antarctic\n3) increases\n4) 740\n5) decreases\n6) 760`,
+          info: `Task 5 checks knowledge of atmospheric pressure. Normal pressure — 760 mm Hg. With altitude pressure decreases. Increased pressure — in tropical and arctic (antarctic) latitudes.`,
+          explanation: `A) 760 (6). B) decreases (5). C) arctic and antarctic (2).`,
+          source: `EGE-2027 Demo Version, Task 5`
+        },
+        ru: {
+          text: `Прочитайте текст, в котором пропущен ряд слов. Выберите из списка слова, которые необходимо вставить на места пропусков.\n\nВоздух, окружающий Землю, имеет значительную массу и поэтому оказывает давление на земную поверхность. Нормальным считается атмосферное давление, равное давлению столба ртути высотой (А) мм на уровне моря при температуре 0 °С на широте 45°. При увеличении абсолютной высоты атмосферное давление (Б). У поверхности Земли атмосферное давление распределяется неравномерно, образуя пояса высокого и низкого давления. Повышенное атмосферное давление в течение всего года преобладает в тропических и (В) широтах.\n\nСписок слов:\n1) умеренный\n2) арктический и антарктический\n3) повышается\n4) 740\n5) понижается\n6) 760`,
+          info: `Задание 5 проверяет знание атмосферного давления. Нормальное давление — 760 мм рт. ст. С высотой давление понижается. Повышенное давление — в тропических и арктических (антарктических) широтах.`,
+          explanation: `А) 760 (6). Б) понижается (5). В) арктический и антарктический (2).`,
+          source: `Демоверсия ЕГЭ-2027, задание 5`
+        },
+        enOptions: ["A-6, B-5, C-2", "A-4, B-3, C-1", "A-6, B-3, C-2", "A-4, B-5, C-1"],
+        ruOptions: ["А-6, Б-5, В-2", "А-4, Б-3, В-1", "А-6, Б-3, В-2", "А-4, Б-5, В-1"],
+        correctIndex: 0
+      },
+      {
+        id: 6, topic: "econ", task: 6,
+        en: {
+          text: `City population size is one of main factors determining planning and development of urban environment. Which three of listed Russian cities have largest population size? Write down numbers.\n\n1) Omsk\n2) Vladivostok\n3) Krasnoyarsk\n4) Nalchik\n5) Kazan\n6) Tver`,
+          info: `Task 6 checks knowledge of largest Russian cities by population size.`,
+          explanation: `Omsk (1), Krasnoyarsk (3), Kazan (5) — largest among listed. Vladivostok, Nalchik, Tver smaller.`,
+          source: `EGE-2027 Demo Version, Task 6`
+        },
+        ru: {
+          text: `Численность населения города — один из основных факторов, определяющих планирование и развитие городской среды. Какие три из перечисленных городов России имеют наибольшую численность населения? Запишите цифры.\n\n1) Омск\n2) Владивосток\n3) Красноярск\n4) Нальчик\n5) Казань\n6) Тверь`,
+          info: `Задание 6 проверяет знание крупнейших городов России по численности населения.`,
+          explanation: `Омск (1), Красноярск (3), Казань (5) — крупнейшие из перечисленных. Владивосток, Нальчик, Тверь меньше.`,
+          source: `Демоверсия ЕГЭ-2027, задание 6`
+        },
+        enOptions: ["1, 3, 5", "2, 4, 6", "1, 2, 3", "3, 5, 6"],
+        ruOptions: ["1, 3, 5", "2, 4, 6", "1, 2, 3", "3, 5, 6"],
+        correctIndex: 0
+      },
+      {
+        id: 7, topic: "econ", task: 7,
+        en: {
+          text: `Establish correspondence between country and diagram reflecting distribution of its economically active population by economic sectors.\n\nCOUNTRY\nA) Nicaragua\nB) Afghanistan\nC) Austria\n\nDIAGRAM TYPE\n1) agriculture predominates\n2) intermediate type\n3) service sector predominates`,
+          info: `Task 7 checks ability to analyze employment structure. Afghanistan — agrarian country, Nicaragua — intermediate, Austria — post-industrial.`,
+          explanation: `Afghanistan (B) — agrarian country (1). Nicaragua (A) — intermediate position (2). Austria (C) — service sector predominates (3).`,
+          source: `EGE-2027 Demo Version, Task 7`
+        },
+        ru: {
+          text: `Установите соответствие между страной и диаграммой, отражающей распределение её экономически активного населения по секторам экономики.\n\nСТРАНА\nА) Никарагуа\nБ) Афганистан\nВ) Австрия\n\nТИП ДИАГРАММЫ\n1) преобладает сельское хозяйство\n2) промежуточный тип\n3) преобладает сфера услуг`,
+          info: `Задание 7 проверяет умение анализировать структуру занятости населения. Афганистан — аграрная страна, Никарагуа — промежуточная, Австрия — постиндустриальная.`,
+          explanation: `Афганистан (Б) — аграрная страна (1). Никарагуа (А) — промежуточное положение (2). Австрия (В) — преобладает сфера услуг (3).`,
+          source: `Демоверсия ЕГЭ-2027, задание 7`
+        },
+        enOptions: ["A-2, B-1, C-3", "A-1, B-2, C-3", "A-3, B-2, C-1", "A-2, B-3, C-1"],
+        ruOptions: ["А-2, Б-1, В-3", "А-1, Б-2, В-3", "А-3, Б-2, В-1", "А-2, Б-3, В-1"],
+        correctIndex: 0
+      },
+      {
+        id: 8, topic: "econ", task: 8,
+        en: {
+          text: `Arrange listed countries in order of increasing natural population growth rate (per 1 thousand inhabitants), starting with country having smallest value of this indicator.\n\n1) Bulgaria\n2) DR Congo\n3) Mexico`,
+          info: `Task 8 checks knowledge of demographic indicators of world countries.`,
+          explanation: `Bulgaria (1) — natural decline. Mexico (3) — small growth. DR Congo (2) — high growth. Order: 1, 3, 2.`,
+          source: `EGE-2027 Demo Version, Task 8`
+        },
+        ru: {
+          text: `Расположите перечисленные страны в порядке возрастания в них показателя естественного прироста населения (на 1 тыс. жителей), начиная со страны с наименьшим значением этого показателя.\n\n1) Болгария\n2) ДР Конго\n3) Мексика`,
+          info: `Задание 8 проверяет знание демографических показателей стран мира.`,
+          explanation: `Болгария (1) — естественная убыль. Мексика (3) — небольшой прирост. ДР Конго (2) — высокий прирост. Порядок: 1, 3, 2.`,
+          source: `Демоверсия ЕГЭ-2027, задание 8`
+        },
+        enOptions: ["1, 3, 2", "2, 3, 1", "3, 1, 2", "1, 2, 3"],
+        ruOptions: ["1, 3, 2", "2, 3, 1", "3, 1, 2", "1, 2, 3"],
+        correctIndex: 0
+      },
+      {
+        id: 9, topic: "econ", task: 9,
+        en: {
+          text: `Russia occupies leading place in world aluminum smelting. Which three of listed countries belong to number of leading world producers and exporters of aluminum? Write down numbers.\n\n1) Canada\n2) Norway\n3) Poland\n4) UAE\n5) Egypt\n6) Mongolia`,
+          info: `Task 9 checks knowledge of leader countries in aluminum production.`,
+          explanation: `World leaders in aluminum: China, Russia, Canada (1), UAE (4), Norway (2). Poland, Egypt, Mongolia — not leaders.`,
+          source: `EGE-2027 Demo Version, Task 9`
+        },
+        ru: {
+          text: `Россия занимает одно из ведущих мест в мире по выплавке алюминия. Какие три из перечисленных стран относятся к числу ведущих мировых производителей и экспортёров алюминия? Запишите цифры.\n\n1) Канада\n2) Норвегия\n3) Польша\n4) ОАЭ\n5) Египет\n6) Монголия`,
+          info: `Задание 9 проверяет знание стран-лидеров по производству алюминия.`,
+          explanation: `Мировые лидеры по алюминию: Китай, Россия, Канада (1), ОАЭ (4), Норвегия (2). Польша, Египет, Монголия — не лидеры.`,
+          source: `Демоверсия ЕГЭ-2027, задание 9`
+        },
+        enOptions: ["1, 2, 4", "1, 3, 5", "2, 4, 6", "3, 5, 6"],
+        ruOptions: ["1, 2, 4", "1, 3, 5", "2, 4, 6", "3, 5, 6"],
+        correctIndex: 0
+      },
+      {
+        id: 10, topic: "econ", task: 10,
+        en: {
+          text: `Based on analysis of data given in table below indicate all regions in which during period 2020 to 2022 annually increased volumes of industrial production.\n\n1) Republic of Adygea: 98.5 → 104.2 → 105.3\n2) Republic of North Ossetia-Alania: 129.7 → 114.2 → 109.8\n3) Republic of Tuva: 63.3 → 105.8 → 137.4\n4) Republic of Crimea: 101.1 → 110.5 → 110.2`,
+          info: `Task 10 checks ability to analyze tabular data. Data are indices in % to PREVIOUS year. Growth = value > 100 %, decline = < 100 %.`,
+          explanation: `Indices given in % to previous year. Value > 100 % = growth, < 100 % = decline.\n• Adygea: 98.5 in 2020 < 100 % → decline ❌\n• North Ossetia: 129.7; 114.2; 109.8 — all > 100 % → growth EVERY year ✅\n• Tuva: 63.3 in 2020 < 100 % → decline ❌\n• Crimea: 101.1; 110.5; 110.2 — all > 100 % → growth EVERY year ✅\nAnswer: 2, 4.`,
+          source: `EGE-2027 Demo Version, Task 10`
+        },
+        ru: {
+          text: `На основе анализа данных приведённой ниже таблицы укажите все регионы, в которых в период с 2020 по 2022 г. ежегодно увеличивались объёмы промышленного производства.\n\n1) Республика Адыгея: 98,5 → 104,2 → 105,3\n2) Республика Северная Осетия – Алания: 129,7 → 114,2 → 109,8\n3) Республика Тыва: 63,3 → 105,8 → 137,4\n4) Республика Крым: 101,1 → 110,5 → 110,2`,
+          info: `Задание 10 проверяет умение анализировать табличные данные. Данные — это индексы в % к ПРЕДЫДУЩЕМУ году. Рост = значение > 100 %, спад = < 100 %.`,
+          explanation: `Индексы даны в % к предыдущему году. Значение > 100 % = рост, < 100 % = спад.\n• Адыгея: 98,5 в 2020 < 100 % → спад ❌\n• Сев. Осетия: 129,7; 114,2; 109,8 — все > 100 % → рост КАЖДЫЙ год ✅\n• Тыва: 63,3 в 2020 < 100 % → спад ❌\n• Крым: 101,1; 110,5; 110,2 — все > 100 % → рост КАЖДЫЙ год ✅\nОтвет: 2, 4.`,
+          source: `Демоверсия ЕГЭ-2027, задание 10`
+        },
+        enOptions: ["2, 4", "1, 4", "1, 3", "3, 4"],
+        ruOptions: ["2, 4", "1, 4", "1, 3", "3, 4"],
+        correctIndex: 0
+      },
+      {
+        id: 11, topic: "phys", task: 11,
+        en: {
+          text: `Using map compare values of average annual amount of atmospheric precipitation in Russia in points designated on map by digits 1, 2 and 3. Arrange points in order of increasing average annual amount of precipitation falling in them.`,
+          info: `Task 11 checks ability to work with precipitation map. Need to determine amount of precipitation by isolines.`,
+          explanation: `According to map: point 3 — about 400 mm, point 1 — about 600 mm, point 2 — about 800 mm. Order of increase: 3, 1, 2.`,
+          source: `EGE-2027 Demo Version, Task 11`
+        },
+        ru: {
+          text: `С помощью карты сравните значения среднегодового количества атмосферных осадков в России в точках, обозначенных на карте цифрами 1, 2 и 3. Расположите точки в порядке увеличения среднегодового количества осадков, выпадающих в них.`,
+          info: `Задание 11 проверяет умение работать с картой осадков. Нужно определить количество осадков по изогиетам.`,
+          explanation: `По карте: точка 3 — около 400 мм, точка 1 — около 600 мм, точка 2 — около 800 мм. Порядок увеличения: 3, 1, 2.`,
+          source: `Демоверсия ЕГЭ-2027, задание 11`
+        },
+        enOptions: ["3, 1, 2", "1, 2, 3", "2, 3, 1", "1, 3, 2"],
+        ruOptions: ["3, 1, 2", "1, 2, 3", "2, 3, 1", "1, 3, 2"],
+        correctIndex: 0
+      },
+      {
+        id: 12, topic: "econ", task: 12,
+        en: {
+          text: `Choose all statements with information about urbanization and write down numbers under which they are indicated.\n\n1) According to UN data for 2023 most high share of urban population characteristic for most developed countries of world, where value of this indicator constitutes about 80 %.\n2) Among citizens of CIS countries arrived in Russia share of persons came in search of earnings increased from 14.0 % in 2020 to 32.1 % in 2022.\n3) In PRC January 1 2016 law came into force allowing each family to have two children, and in May 2021 allowed number of children increased to three.\n4) As of January 1 2023 in Russia counted 20 cities permanent population of which constituted from 500 thousand to million people.\n5) According to UN estimates for 2024 approximately 59 % of world population lived in Asian countries.`,
+          info: `Task 12 checks ability to distinguish information about urbanization from other demographic data. Urbanization — growth of urban population and its share.`,
+          explanation: `Urbanization is growth of cities and urban population. 1) Share of urban population — urbanization. 4) Number of cities — urbanization. 2) Migrations, 3) Demographic policy, 5) Settlement — not urbanization.`,
+          source: `EGE-2027 Demo Version, Task 12`
+        },
+        ru: {
+          text: `Выберите все высказывания с информацией об урбанизации и запишите цифры, под которыми они указаны.\n\n1) По данным ООН на 2023 г. наиболее высокая доля городского населения характерна для наиболее развитых стран мира, где значение этого показателя составляет около 80 %.\n2) Среди граждан стран СНГ, прибывших в Россию, доля лиц, приехавших в поисках заработка, возросла с 14,0 % в 2020 г. до 32,1 % в 2022 г.\n3) В КНР 1 января 2016 г. вступил в силу закон, разрешающий каждой семье иметь двоих детей, а в мае 2021 г. разрешённое число детей увеличили до троих.\n4) По состоянию на 1 января 2023 г. в России насчитывалось 20 городов, численность постоянного населения которых составляла от 500 тысяч до миллиона человек.\n5) По оценкам ООН на 2024 г. примерно 59 % населения мира проживало в странах Азии.`,
+          info: `Задание 12 проверяет умение отличать информацию об урбанизации от других демографических данных. Урбанизация — рост городского населения и его доли.`,
+          explanation: `Урбанизация — это рост городов и городского населения. 1) Доля городского населения — урбанизация. 4) Число городов — урбанизация. 2) Миграции, 3) Демографическая политика, 5) Расселение — не урбанизация.`,
+          source: `Демоверсия ЕГЭ-2027, задание 12`
+        },
+        enOptions: ["1, 4", "2, 3", "3, 5", "1, 5"],
+        ruOptions: ["1, 4", "2, 3", "3, 5", "1, 5"],
+        correctIndex: 0
+      },
+      {
+        id: 13, topic: "phys", task: 13,
+        en: {
+          text: `Arrange events in geological history of Earth in chronological order, starting from earliest.\n\n1) At end of Cretaceous period fall of giant asteroid occurred leading to sharp change in climate and death of dinosaurs.\n2) In Permian period Ural Mountains and foundation of West Siberian Plate formed.\n3) In Proterozoic territory of Earth covered longest Huronian glaciation lasting almost 300 million years.`,
+          info: `Task 13 checks knowledge of geological chronology.`,
+          explanation: `Proterozoic (~2.5 billion — 541 million years ago) → Permian period (~299–252 million years ago) → Cretaceous period (~145–66 million years ago). Order: 3, 2, 1.`,
+          source: `EGE-2027 Demo Version, Task 13`
+        },
+        ru: {
+          text: `Расположите события в геологической истории Земли в хронологическом порядке, начиная с самого раннего.\n\n1) В конце мелового периода произошло падение гигантского астероида, приведшее к резкому изменению климата и гибели динозавров.\n2) В пермский период формировались Уральские горы и фундамент Западно-Сибирской плиты.\n3) В протерозое территорию Земли охватило самое продолжительное за всю историю гуронское оледенение, которое продлилось почти 300 млн лет.`,
+          info: `Задание 13 проверяет знание геологической хронологии.`,
+          explanation: `Протерозой (~2,5 млрд — 541 млн лет назад) → пермский период (~299–252 млн лет назад) → меловой период (~145–66 млн лет назад). Порядок: 3, 2, 1.`,
+          source: `Демоверсия ЕГЭ-2027, задание 13`
+        },
+        enOptions: ["3, 2, 1", "1, 2, 3", "2, 3, 1", "3, 1, 2"],
+        ruOptions: ["3, 2, 1", "1, 2, 3", "2, 3, 1", "3, 1, 2"],
+        correctIndex: 0
+      },
+      {
+        id: 14, topic: "phys", task: 14,
+        en: {
+          text: `Live broadcast of match for Cup of Russia football between teams «Parin N» (Nizhny Novgorod) and «Spartak» (Moscow) began October 1 2025 at 18 h Moscow time. Using map determine at what hour local time this broadcast began in Irkutsk.`,
+          info: `Task 14 checks ability to determine time by map of time zones. Irkutsk — VII time zone (+5 to Moscow).`,
+          explanation: `Irkutsk — VII time zone (+5 to Moscow). 18 + 5 = 23 h.`,
+          source: `EGE-2027 Demo Version, Task 14`
+        },
+        ru: {
+          text: `Прямая трансляция матча на Кубок России по футболу между командами «Пари НН» (Нижний Новгород) и «Спартак» (Москва) началась 1 октября 2025 г. в 18 ч по московскому времени. Используя карту, определите, во сколько часов по местному времени эта трансляция началась в Иркутске.`,
+          info: `Задание 14 проверяет умение определять время по карте часовых поясов. Иркутск — VII часовая зона (+5 к Москве).`,
+          explanation: `Иркутск — VII часовая зона (+5 к Москве). 18 + 5 = 23 ч.`,
+          source: `Демоверсия ЕГЭ-2027, задание 14`
+        },
+        enOptions: ["23", "21", "22", "24"],
+        ruOptions: ["23", "21", "22", "24"],
+        correctIndex: 0
+      },
+      {
+        id: 15, topic: "econ", task: 15,
+        en: {
+          text: `Students found in Internet information that in world in 2022 was extracted 4 534 million tons oil, at this time indicator of resource availability by oil for this year constituted 55 years. Determine what was magnitude of explored reserves of oil in world in 2022.`,
+          info: `Task 15 checks ability to calculate resource availability: reserves = extraction × resource availability.`,
+          explanation: `4 534 × 55 = 249 370 million tons.`,
+          source: `EGE-2027 Demo Version, Task 15`
+        },
+        ru: {
+          text: `Учащиеся нашли в сети Интернет информацию о том, что в мире в 2022 г. было добыто 4 534 млн т нефти, при этом показатель ресурсообеспеченности нефтью на этот год составлял 55 лет. Определите, какова была величина разведанных запасов нефти в мире в 2022 г.`,
+          info: `Задание 15 проверяет умение рассчитывать ресурсообеспеченность: запасы = добыча × ресурсообеспеченность.`,
+          explanation: `4 534 × 55 = 249 370 млн т.`,
+          source: `Демоверсия ЕГЭ-2027, задание 15`
+        },
+        enOptions: ["249370", "250000", "240000", "260000"],
+        ruOptions: ["249370", "250000", "240000", "260000"],
+        correctIndex: 0
+      },
+      {
+        id: 16, topic: "econ", task: 16,
+        en: {
+          text: `Using data of diagram determine value of migration growth indicator of Chuvash Republic population in 2022 (thousand people).\n\nArrived: 19.1 + 10.4 + 3.1 = 32.6 thousand\nDeparted: 19.1 + 13.1 + 5.4 = 37.6 thousand`,
+          info: `Task 16 checks ability to calculate migration growth: arrived − departed.`,
+          explanation: `32.6 − 37.6 = −5.0 thousand people (migration decline).`,
+          source: `EGE-2027 Demo Version, Task 16`
+        },
+        ru: {
+          text: `Используя данные диаграммы, определите значение показателя миграционного прироста населения Чувашской Республики в 2022 г. (тыс. человек).\n\nПрибывшие: 19,1 + 10,4 + 3,1 = 32,6 тыс.\nВыбывшие: 19,1 + 13,1 + 5,4 = 37,6 тыс.`,
+          info: `Задание 16 проверяет умение рассчитывать миграционный прирост: прибывшие − выбывшие.`,
+          explanation: `32,6 − 37,6 = −5,0 тыс. человек (миграционная убыль).`,
+          source: `Демоверсия ЕГЭ-2027, задание 16`
+        },
+        enOptions: ["−5.0", "5.0", "−4.0", "4.0"],
+        ruOptions: ["−5,0", "5,0", "−4,0", "4,0"],
+        correctIndex: 0
+      },
+      {
+        id: 17, topic: "econ", task: 17,
+        en: {
+          text: `Determine country by its brief description.\n\nThis country in west washed by waters Atlantic Ocean. Greater part of its territory lies within extensive plateau, in subequatorial and tropical climate zones. Amount of atmospheric precipitation decreases from north to south. Predominantly variable-moist forests, savannas and sparse forests, and in south and on coast lies zone of semi-deserts and deserts. Official language — Portuguese. Leading role in economy of country plays oil industry.`,
+          info: `Task 17 checks ability to determine country by description. Key signs: Atlantic Ocean, plateau, Portuguese language, oil.`,
+          explanation: `All signs indicate Angola: western coast of Atlantic, plateau, Portuguese language, oil industry.`,
+          source: `EGE-2027 Demo Version, Task 17`
+        },
+        ru: {
+          text: `Определите страну по её краткому описанию.\n\nЭта страна на западе омывается водами Атлантического океана. Бóльшая часть её территории лежит в пределах обширного плоскогорья, в субэкваториальном и тропическом климатических поясах. Количество атмосферных осадков уменьшается с севера на юг. Преобладают переменно-влажные леса, саванны и редколесья, а на юге и на побережье располагается зона полупустынь и пустынь. Официальный язык — португальский. Ведущую роль в экономике страны играет нефтяная промышленность.`,
+          info: `Задание 17 проверяет умение определять страну по описанию. Ключевые признаки: Атлантический океан, плоскогорье, португальский язык, нефть.`,
+          explanation: `Все признаки указывают на Анголу: западное побережье Атлантики, плоскогорье, португальский язык, нефтяная промышленность.`,
+          source: `Демоверсия ЕГЭ-2027, задание 17`
+        },
+        enOptions: ["Angola", "Brazil", "Mozambique", "Portugal"],
+        ruOptions: ["Ангола", "Бразилия", "Мозамбик", "Португалия"],
+        correctIndex: 0
+      },
+      {
+        id: 18, topic: "econ", task: 18,
+        en: {
+          text: `Determine region of Russia by its brief description.\n\nFeature of geographic position of this republic in composition of Russian Federation is presence of exit to state border. Greater part of territory occupied by mountains, part of lowlands in east lies below sea level. Economy has agro-industrial character. Is most multinational republic of Russia. In total population size share of rural population exceeds 50 %.`,
+          info: `Task 18 checks ability to determine region of Russia by description. Signs: republic, exit to border, mountains, lowlands below sea level, most multinational, rural population > 50 %.`,
+          explanation: `All signs indicate Republic of Dagestan: exit to border, mountains, Caspian Depression below sea level, most multinational republic, rural population > 50 %.`,
+          source: `EGE-2027 Demo Version, Task 18`
+        },
+        ru: {
+          text: `Определите регион России по его краткому описанию.\n\nОсобенностью географического положения этой республики в составе Российской Федерации является наличие выхода к государственной границе. Бóльшую часть территории занимают горы, часть низменностей на востоке лежит ниже уровня моря. Экономика имеет аграрно-индустриальный характер. Является самой многонациональной республикой России. В общей численности населения доля сельского населения превышает 50 %.`,
+          info: `Задание 18 проверяет умение определять регион России по описанию. Признаки: республика, выход к границе, горы, низменности ниже уровня моря, самая многонациональная, сельское население > 50 %.`,
+          explanation: `Все признаки указывают на Республику Дагестан: выход к границе, горы, Прикаспийская низменность ниже уровня моря, самая многонациональная республика, сельское население > 50 %.`,
+          source: `Демоверсия ЕГЭ-2027, задание 18`
+        },
+        enOptions: ["Dagestan", "Chechnya", "Kabardino-Balkaria", "North Ossetia-Alania"],
+        ruOptions: ["Дагестан", "Чечня", "Кабардино-Балкария", "Северная Осетия — Алания"],
+        correctIndex: 0
+      },
+      {
+        id: 19, topic: "econ", task: 19,
+        en: {
+          text: `Arrange listed countries in order of increasing share of urban population in total population size, starting with country having smallest value of this indicator.\n\n1) Uruguay\n2) Panama\n3) Venezuela`,
+          info: `Task 19 checks knowledge of share of urban population in Latin American countries.`,
+          explanation: `Panama (2) — about 69 % (smallest share of three). Venezuela (3) — about 88 %. Uruguay (1) — one of most urbanized countries of Latin America, about 92 % (largest). Order: 2, 3, 1.`,
+          source: `EGE-2027 Demo Version, Task 19`
+        },
+        ru: {
+          text: `Расположите перечисленные страны в порядке возрастания в них доли городского населения в общей численности населения, начиная со страны с наименьшим значением этого показателя.\n\n1) Уругвай\n2) Панама\n3) Венесуэла`,
+          info: `Задание 19 проверяет знание доли городского населения в странах Латинской Америки.`,
+          explanation: `Панама (2) — около 69 % (наименьшая доля из трёх). Венесуэла (3) — около 88 %. Уругвай (1) — одна из самых урбанизированных стран Латинской Америки, около 92 % (наибольшая). Порядок: 2, 3, 1.`,
+          source: `Демоверсия ЕГЭ-2027, задание 19`
+        },
+        enOptions: ["2, 3, 1", "3, 2, 1", "1, 2, 3", "2, 1, 3"],
+        ruOptions: ["2, 3, 1", "3, 2, 1", "1, 2, 3", "2, 1, 3"],
+        correctIndex: 0
+      },
+      {
+        id: 20, topic: "econ", task: 20,
+        en: {
+          text: `Establish correspondence between country and conventional designation which must be used for displaying share of urban population of each of listed countries on map "Africa. Share of Urban Population".\n\nCOUNTRY\nA) Libya\nB) Mali\nC) Niger\n\nCONVENTIONAL DESIGNATION\n1) 0–20 %\n2) 21–40 %\n3) 41–60 %\n4) 61–80 %\n5) 81–100 %`,
+          info: `Task 20 checks knowledge of share of urban population in African countries.`,
+          explanation: `Libya (A) — about 81 % → 81–100 % (5). Mali (B) — about 45 % → 41–60 % (3). Niger (C) — about 17 % → 0–20 % (1).`,
+          source: `EGE-2027 Demo Version, Task 20`
+        },
+        ru: {
+          text: `Установите соответствие между страной и условным обозначением, которое необходимо использовать для отображения доли городского населения каждой из перечисленных стран на карте «Африка. Доля городского населения».\n\nСТРАНА\nА) Ливия\nБ) Мали\nВ) Нигер\n\nУСЛОВНОЕ ОБОЗНАЧЕНИЕ\n1) 0–20 %\n2) 21–40 %\n3) 41–60 %\n4) 61–80 %\n5) 81–100 %`,
+          info: `Задание 20 проверяет знание доли городского населения в странах Африки.`,
+          explanation: `Ливия (А) — около 81 % → 81–100 % (5). Мали (Б) — около 45 % → 41–60 % (3). Нигер (В) — около 17 % → 0–20 % (1).`,
+          source: `Демоверсия ЕГЭ-2027, задание 20`
+        },
+        enOptions: ["A-5, B-3, C-1", "A-1, B-5, C-3", "A-5, B-1, C-3", "A-3, B-5, C-1"],
+        ruOptions: ["А-5, Б-3, В-1", "А-1, Б-5, В-3", "А-5, Б-1, В-3", "А-3, Б-5, В-1"],
+        correctIndex: 0
+      },
+      {
+        id: 21, topic: "econ", task: 21,
+        en: {
+          text: `Name geographical district in which Primorsky Krai is located.`,
+          info: `Task 21 checks knowledge of economic districts of Russia. Primorsky Krai — Far East.`,
+          explanation: `Primorsky Krai belongs to Far Eastern economic district.`,
+          source: `EGE-2027 Demo Version, Task 21`
+        },
+        ru: {
+          text: `Назовите географический район, в котором находится Приморский край.`,
+          info: `Задание 21 проверяет знание экономических районов России. Приморский край — Дальний Восток.`,
+          explanation: `Приморский край входит в Дальневосточный экономический район.`,
+          source: `Демоверсия ЕГЭ-2027, задание 21`
+        },
+        enOptions: ["Far East", "Eastern Siberia", "Western Siberia", "North Caucasus"],
+        ruOptions: ["Дальний Восток", "Восточная Сибирь", "Западная Сибирь", "Северный Кавказ"],
+        correctIndex: 0
+      }
+    ];
+
+    const part2TasksRaw = [
+      {
+        n: 22,
+        en: {
+          title: "Term (Import Substitution)",
+          text: "Explain what term «import substitution» used in text means.",
+          note: "Import substitution is replacement of imported goods with domestic analogues, reduction of import inflow through development of own production of similar products."
+        },
+        ru: {
+          title: "Термин (импортозамещение)",
+          text: "Объясните, что означает использованный в тексте термин «импортозамещение».",
+          note: "Импортозамещение — это замена импортных товаров отечественными аналогами, сокращение ввоза импорта путём развития собственного производства аналогичной продукции."
+        }
+      },
+      {
+        n: 23,
+        en: {
+          title: "Relevance of building ice-class tankers and gas carriers",
+          text: "With what is currently relevance for Russia of building ice-class tankers and gas carriers connected?",
+          note: "Relevance connected with presence of large deposits of oil and natural gas on shelf of Arctic Ocean seas; development of navigation on Northern Sea Route; increase in export of oil or liquefied natural gas to Asia-Pacific region countries; increase in share of maritime transport in oil export; increase in volumes of LNG export."
+        },
+        ru: {
+          title: "Актуальность строительства танкеров и газовозов ледового класса",
+          text: "С чем связана в настоящее время актуальность для России строительства танкеров и газовозов ледового класса?",
+          note: "Актуальность связана с наличием крупных месторождений нефти и природного газа на шельфе морей Северного Ледовитого океана; развитием судоходства на Северном морском пути; увеличением экспорта нефти или сжиженного природного газа в страны Азиатско-Тихоокеанского региона; увеличением доли морского транспорта в экспорте нефти; увеличением объёмов экспорта сжиженного природного газа."
+        }
+      },
+      {
+        n: 24,
+        en: {
+          title: "HDI: Uruguay or Argentina",
+          text: "Based on analysis of data of statistical appendices issued with CMM, suppose which of countries: Uruguay or Argentina — was in 2023 higher in UN rating by Human Development Index (HDI). For justification of your answer write necessary numerical data from tables and calculations on basis of which you made your supposition.",
+          note: "Uruguay. 1) In Uruguay higher average life expectancy: 78 years in Uruguay and 76 years in Argentina. 2) In Uruguay higher GDP per capita: $21,444 in Uruguay and $13,836 in Argentina, OR calculations: 77,200 : 3.6 in Uruguay and 640,600 : 46.3 in Argentina. Both indicators higher for Uruguay, thus HDI higher."
+        },
+        ru: {
+          title: "ИЧР: Уругвай или Аргентина",
+          text: "На основе анализа данных статистических приложений, выдаваемых с КИМ, предположите, какая из стран: Уругвай или Аргентина — находилась в 2023 г. выше в рейтинге ООН по индексу человеческого развития (ИЧР). Для обоснования Вашего ответа запишите необходимые числовые данные из таблиц и вычисления, на основании которых Вы сделали своё предположение.",
+          note: "Уругвай. 1) В Уругвае более высокая средняя ожидаемая продолжительность жизни: 78 лет в Уругвае и 76 лет в Аргентине. 2) В Уругвае выше ВВП на душу населения: 21 444 долл. в Уругвае и 13 836 долл. в Аргентине, ИЛИ вычисления: 77 200 : 3,6 в Уругвае и 640 600 : 46,3 в Аргентине. Оба показателя выше у Уругвая, значит, и ИЧР выше."
+        }
+      },
+      {
+        n: 25,
+        en: {
+          title: "Agriculture: Ivory Coast or Bolivia",
+          text: "Using data of statistical appendices issued with CMM, compare shares of labor force employed in agriculture and shares of agriculture in total GDP volumes of Ivory Coast and Bolivia. Make conclusion in which of these countries agriculture played greater role in economy in 2023. For justification of your answer write necessary numerical data and calculations.",
+          note: "Ivory Coast. 1) Share of labor force employed in agriculture in Ivory Coast higher than in Bolivia: 45 % in Ivory Coast and 29 % in Bolivia. 2) Share of agriculture in total GDP volume in Ivory Coast higher than in Bolivia. 3) To determine share of agriculture in GDP of Ivory Coast: 13.0 : 79.6; for Bolivia: 5.7 : 45.8. Values: 16.3 % in Ivory Coast and 12.4 % in Bolivia. 4) Agriculture played greater role in economy of Ivory Coast."
+        },
+        ru: {
+          title: "Сельское хозяйство: Кот-д'Ивуар или Боливия",
+          text: "Используя данные статистических приложений, выдаваемых с КИМ, сравните доли рабочей силы, занятой в сельском хозяйстве, и доли сельского хозяйства в общих объёмах ВВП Кот-д'Ивуара и Боливии. Сделайте вывод, в какой из этих стран сельское хозяйство играло бóльшую роль в экономике в 2023 г. Для обоснования Вашего ответа запишите необходимые числовые данные и вычисления.",
+          note: "Кот-д'Ивуар. 1) Доля рабочей силы, занятой в сельском хозяйстве, в Кот-д'Ивуаре выше, чем в Боливии: 45 % в Кот-д'Ивуаре и 29 % в Боливии. 2) Доля сельского хозяйства в общем объёме ВВП в Кот-д'Ивуаре выше, чем в Боливии. 3) Для определения доли сельского хозяйства в ВВП Кот-д'Ивуара: 13,0 : 79,6; для Боливии: 5,7 : 45,8. Значения: 16,3 % в Кот-д'Ивуаре и 12,4 % в Боливии. 4) Сельское хозяйство играло бóльшую роль в экономике Кот-д'Ивуара."
+        }
+      },
+      {
+        n: 26,
+        en: {
+          title: "Location Factors of Amur Gas Processing Plant",
+          // FIX: Changed double quotes around Power of Siberia to single quotes or escaped them to avoid syntax error
+          text: `In 2015 near city Svobodny located on Trans-Siberian Railway 150 km from Blagoveshchensk construction of Amur Gas Processing Plant (GPP) began. At first stage access roads and pier on Zeya river built, then delivered and installed largest equipment for plant — three columns for methane separation each weighing 1014 t and length 87 m. In 2021 new plant commissioned. Plant processes natural gas mined at deposits of Irkutsk region and Yakutia. Gas of these deposits multi-component, and at Amur GPP from it most valuable components extracted, and methane exported via pipeline 'Power of Siberia'. Determine what two features of EGP of city Svobodny besides position on pipeline route determined its choice for GPP construction.`,
+          note: "1) Position on water transport artery (Zeya river) OR position at intersection of land and water transport routes. 2) Neighborhood with Asia-Pacific region countries."
+        },
+        ru: {
+          title: "Факторы размещения Амурского ГПЗ",
+          text: `В 2015 г. рядом с городом Свободный, расположенным на Транссибирской магистрали в 150 км от Благовещенска, началось строительство Амурского газоперерабатывающего завода (ГПЗ). На первом этапе были построены подъездные автодороги и причал на реке Зее, а затем уже доставлено и установлено самое крупногабаритное оборудование для завода — три колонны для выделения метана, каждая весом в 1014 т и длиной 87 м. В 2021 г. новый завод был сдан в эксплуатацию. Завод перерабатывает природный газ, добываемый на месторождениях Иркутской области и Якутии. Газ этих месторождений многокомпонентный, и на Амурском ГПЗ из него извлекаются наиболее ценные компоненты, а метан экспортируется по газопроводу «Сила Сибири». Определите, какие две особенности ЭГП г. Свободного, кроме положения на трассе газопровода, определили его выбор для строительства ГПЗ.`,
+          note: "1) Положение на водной транспортной магистрали (река Зея) ИЛИ положение на пересечении сухопутных и водных транспортных путей. 2) Соседство со странами Азиатско-Тихоокеанского региона."
+        }
+      },
+      {
+        n: 27,
+        en: {
+          title: "Water Soil Erosion",
+          text: "Determine within which of plots designated on fragment of topographic map by digits 1, 2 and 3 greatest danger of development of water erosion of soil layer exists. For justification of your answer provide two arguments.",
+          note: "Greatest danger — on plot 3. 1) Plot located on slope (unlike gentle plot 1). 2) Territory of plot plowed, does not have natural vegetation (unlike plot 2 where bushes grow)."
+        },
+        ru: {
+          title: "Водная эрозия почв",
+          text: "Определите, в пределах какого из участков, обозначенных на фрагменте топографической карты цифрами 1, 2 и 3, существует наибольшая опасность развития водной эрозии почвенного слоя. Для обоснования Вашего ответа приведите два довода.",
+          note: "Наибольшая опасность — на участке 3. 1) Участок находится на склоне (в отличие от пологого участка 1). 2) Территория участка распахана, не имеет естественной растительности (в отличие от участка 2, где растут кустарники)."
+        }
+      },
+      {
+        n: 28,
+        en: {
+          title: "Distance along Meridian",
+          text: "From ship located in point with coordinates 25° N lat. 155° W long. radio message received about engine malfunction. What distance (in km) to faulty vessel repair vessel from port Hilo (20° N lat. 155° W long.) will travel if known that it will go strictly along meridian, and faulty vessel remains in same point from which message transmitted? Round answer to whole number. Write solution of problem.",
+          note: "Solution: (25 − 20) × 111 km = 555 km. Answer: 555 km. (Answer in interval from 555 to 559 km allowed if using value of arc length of 1° meridian from 111.0 to 111.7 km.)"
+        },
+        ru: {
+          title: "Расстояние по меридиану",
+          text: "С корабля, находящегося в точке с координатами 25° с.ш. 155° з.д., поступило радиосообщение о неисправности двигателя. Какое расстояние (в км) до неисправного судна пройдёт ремонтный корабль из порта Хило (20° с.ш. 155° з.д.), если известно, что он будет идти строго по меридиану, а неисправное судно останется в той же точке, откуда было передано сообщение? Ответ округлите до целого числа. Запишите решение задачи.",
+          note: "Решение: (25 − 20) × 111 км = 555 км. Ответ: 555 км. (Допускается ответ в интервале от 555 до 559 км, если используется значение длины дуги 1° меридиана от 111,0 до 111,7 км.)"
+        }
+      },
+      {
+        n: 29,
+        en: {
+          title: "Climate Change and Crop Farming of Rostov Region",
+          text: "During last 30 years average annual air temperature in Rostov region increased by 1.5 °C. Summer months became warmer and even hot, winter — not so frosty; cold period of year shortened; decreased average annual amount of precipitation and changed regime of their falling. Possible consequences of such climate changes for crop farming of Rostov region ambiguous. Indicate one favorable and one unfavorable consequence of climate changes of Rostov region for crop farming of this region.",
+          note: "Favorable: improvement of conditions for growing heat-loving agricultural crops, increase in their yield, emergence of possibility to grow more species of crops. Unfavorable: deterioration of conditions for growing moisture-loving crops, decrease in their yield, increase in irrigation costs, possible salinization of soils, increase in frequency and duration of droughts."
+        },
+        ru: {
+          title: "Изменение климата и растениеводство Ростовской области",
+          text: "За последние 30 лет средняя годовая температура воздуха в Ростовской области выросла на 1,5 °С. Летние месяцы стали более тёплыми и даже жаркими, а зимние — не такими морозными; сократился холодный период года; уменьшилось среднегодовое количество осадков и изменился режим их выпадения. Возможные последствия таких изменений климата для растениеводства Ростовской области неоднозначны. Укажите одно благоприятное и одно неблагоприятное следствие изменений климата Ростовской области для растениеводства этого региона.",
+          note: "Благоприятное: улучшение условий для выращивания теплолюбивых сельскохозяйственных культур, повышение их урожайности, появление возможности выращивать больше видов культур. Неблагоприятное: ухудшение условий для выращивания влаголюбивых культур, снижение их урожайности, увеличение затрат на орошение, возможное засоление почв, увеличение частоты и продолжительности засух."
+        }
+      }
+    ];
+
+    // Process Quiz Data for current language
+    let quiz = [];
+    let part2Tasks = [];
+
+    function prepareData() {
+      quiz = quizRaw.map(q => ({
+        ...q,
+        text: q[currentLang].text,
+        info: q[currentLang].info,
+        explanation: q[currentLang].explanation,
+        source: q[currentLang].source,
+        options: currentLang === 'ru' ? [...q.ruOptions] : [...q.enOptions],
+        correct: q.correctIndex 
+      }));
+      
+      part2Tasks = part2TasksRaw.map(t => ({
+        n: t.n,
+        title: t[currentLang].title,
+        text: t[currentLang].text,
+        note: t[currentLang].note
+      }));
+    }
+
+    // ============================================================
+    // LOGIC FUNCTIONS
+    // ============================================================
+
+    const QUIZ_ORIGINAL_VALUES = quizRaw.map(function (q) {
+      return {
+        correctValueRu: q.ruOptions[q.correctIndex],
+        correctValueEn: q.enOptions[q.correctIndex]
+      };
+    });
+
+    function seededShuffle(arr, seedNum) {
+      const a = arr.slice();
+      let s = seedNum || 1;
+      const rand = function () {
+        s = (s * 9301 + 49297) % 233280;
+        return s / 233280;
+      };
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(rand() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function shuffleOptionsOnce() {
+      const seed = quizRaw.map(function () {
+        return Math.floor(Math.random() * 1000000) + 1;
+      });
+
+      quiz.forEach(function (q, i) {
+        const correctVal = currentLang === 'ru' 
+           ? QUIZ_ORIGINAL_VALUES[i].correctValueRu 
+           : QUIZ_ORIGINAL_VALUES[i].correctValueEn;
+
+        const shuffled = seededShuffle(q.options, seed[i]);
+        q.options = shuffled;
+        q.correct = shuffled.indexOf(correctVal);
+      });
+    }
+
+    let savedAnswers = {};
+    let manualNotes = {};
+    let checklistState = {};
+    let currentFilter = "all";
+
+    function applyUIText() {
+      const L = I18N[currentLang];
+      document.title = L.docTitle;
+      document.documentElement.lang = currentLang;
+
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute("content", L.metaDesc);
+
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        const key = el.dataset.i18n;
+        if (L[key] != null) el.innerHTML = L[key];
+      });
+      
+      updateDynamicLabels();
+    }
+
+    function updateDynamicLabels() {}
+
+    function renderCard(card, index, containerId) {
+      const container = document.getElementById(containerId);
+      const div = document.createElement('div');
+      div.className = 'card ' + (card.cls || '');
+      
+      let inner = `<span class="tag ${card.tagCls || ''}">${loc(card.tagKey)}</span>`;
+      inner += `<h3>${loc(card.titleKey)}</h3>`;
+      
+      if (card.listKey) {
+        const list = I18N[currentLang][card.listKey];
+        inner += `<ul class="mini-list">${list.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+      } else if (card.textKey) {
+        inner += `<p>${escapeHtml(I18N[currentLang][card.textKey])}</p>`;
+      }
+      
+      div.innerHTML = inner;
+      container.appendChild(div);
+    }
+
+    function renderStaticSections() {
+      document.getElementById("structureGrid").innerHTML = '';
+      document.getElementById("changesGrid").innerHTML = '';
+      document.getElementById("criteriaGrid").innerHTML = '';
+      
+      structureCardsData.forEach(c => renderCard(c, 0, "structureGrid"));
+      changesCardsData.forEach(c => renderCard(c, 0, "changesGrid"));
+      criteriaCardsData.forEach(c => renderCard(c, 0, "criteriaGrid"));
+    }
+
+    function renderChecklist() {
+      const ul = document.getElementById("checklistUl");
+      ul.innerHTML = checklistItemsData.map(function (item) {
+        const checked = checklistState[item.key] ? "checked" : "";
+        const doneClass = checklistState[item.key] ? "done" : "";
+        const labelText = currentLang === "ru" ? item.labelRu : item.labelEn;
+        return `
+          <li class="check-item ${doneClass}">
+            <input type="checkbox" id="${item.key}" data-key="${item.key}" ${checked} />
+            <label for="${item.key}">${escapeHtml(labelText)}</label>
+          </li>
+        `;
+      }).join("");
+    }
+
+    function renderPlan() {
+      const L = I18N[currentLang];
+      document.getElementById("planGrid").innerHTML = planDaysData.map(function (d) {
+        const text = currentLang === "ru" ? d.ru : d.en;
+        return `
+          <div class="day ${d.critical ? "critical" : ""}">
+            <b>${escapeHtml(L.dayPrefix)} ${d.day}</b>
+            ${escapeHtml(text)}
+          </div>
+        `;
+      }).join("");
+    }
+
+    function topicLabel(topic) {
+      if (topic === "phys") return loc("topicPhys");
+      return loc("topicEcon");
+    }
+
+    function topicClass(topic) {
+      if (topic === "phys") return "q-number phys";
+      return "q-number econ";
+    }
+
+    function setFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll(".filter-btn").forEach(function (b) {
+        b.classList.remove("active");
+      });
+      if (btn) btn.classList.add("active");
+      applyFilter();
+    }
+
+    function applyFilter() {
+      quiz.forEach(function (q) {
+        const block = document.getElementById("q" + q.id);
+        if (!block) return;
+        let show = true;
+        if (currentFilter !== "all") show = q.topic === currentFilter;
+        block.style.display = show ? "" : "none";
+      });
+    }
+
+    function updateFilterLabels() {
+      const physCount = quiz.filter(function (q) { return q.topic === "phys"; }).length;
+      const econCount = quiz.filter(function (q) { return q.topic === "econ"; }).length;
+
+      document.getElementById("filterAll").textContent = `${loc("filterAll")} (${quiz.length})`;
+      document.getElementById("filterPhys").textContent = `${loc("filterPhys")} (${physCount})`;
+      document.getElementById("filterEcon").textContent = `${loc("filterEcon")} (${econCount})`;
+    }
+
+    function renderAllQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      quiz.forEach(function (q) {
+        const block = document.createElement("div");
+        block.className = "question-block";
+        block.id = "q" + q.id;
+
+        let optionsHtml = "";
+        q.options.forEach(function (opt, idx) {
+          optionsHtml += `<button class="option" data-q="${q.id}" data-idx="${idx}" data-value="${escapeHtml(opt)}" onclick="handleAnswer(${q.id}, ${idx})">${escapeHtml(opt)}</button>`;
+        });
+
+        block.innerHTML = `
+          <div class="${topicClass(q.topic)}">${escapeHtml(topicLabel(q.topic))}, ${loc("p2Task")} ${q.task}</div>
+
+          <div class="q-part">
+            <span class="q-part-label">${escapeHtml(loc("qLabel1"))}</span>
+            <div class="q-text">${escapeHtml(q.text)}</div>
+          </div>
+
+          <div class="q-info">
+            <span class="q-part-label" style="color:#d8ccff;">${escapeHtml(loc("qLabel2"))}</span>
+            <p style="margin:0;">${escapeHtml(q.info)}</p>
+          </div>
+
+          <div class="q-part">
+            <span class="q-trainer-label">${escapeHtml(loc("qLabel3"))}</span>
+            <div class="options" id="options-${q.id}">${optionsHtml}</div>
+          </div>
+
+          <div id="result-${q.id}"></div>
+        `;
+
+        container.appendChild(block);
+      });
+
+      quiz.forEach(function (q) {
+        if (savedAnswers[q.id] !== undefined) {
+          applyAnswerVisual(q, savedAnswers[q.id]);
+          showResult(q, savedAnswers[q.id]);
+        }
+      });
+
+      updateFilterLabels();
+      updateStats();
+      updateSummary();
+      applyFilter();
+    }
+
+    function renderPart2() {
+      const container = document.getElementById("part2Container");
+      container.innerHTML = "";
+
+      part2Tasks.forEach(function (t) {
+        const card = document.createElement("article");
+        card.className = "manual-card";
+
+        card.innerHTML = `
+          <span class="tag red">${escapeHtml(loc("p2Tag"))}</span>
+          <h3>${escapeHtml(loc("p2Task"))} ${t.n}. ${escapeHtml(t.title)}</h3>
+          <p>${escapeHtml(t.text)}</p>
+          <div class="answer-hint">
+            <strong>${escapeHtml(loc("p2Hint"))}</strong>
+            ${escapeHtml(t.note)}
+          </div>
+          <div class="check-input">
+            <label>${escapeHtml(loc("p2InputLbl"))}</label>
+            <input
+              type="text"
+              data-task="${t.n}"
+              value="${escapeHtml(manualNotes[t.n] || "")}"
+              placeholder="${escapeHtml(loc("p2Placeholder"))}"
+            />
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function handleAnswer(qId, selectedIdx) {
+      const q = quiz.find(function (item) { return item.id === qId; });
+      if (!q || savedAnswers[qId] !== undefined) return;
+
+      const selectedValue = q.options[selectedIdx];
+      savedAnswers[qId] = selectedValue;
+
+      applyAnswerVisual(q, selectedValue);
+      showResult(q, selectedValue);
+      updateStats();
+      updateSummary();
+    }
+
+    function applyAnswerVisual(q, selectedValue) {
+      const optionsBox = document.getElementById("options-" + q.id);
+      if (!optionsBox) return;
+
+      const correctValue = q.options[q.correct];
+      const buttons = optionsBox.querySelectorAll(".option");
+
+      buttons.forEach(function (btn) {
+        btn.disabled = true;
+        const value = btn.dataset.value;
+
+        if (value === correctValue) {
+          btn.classList.add("correct");
+        }
+
+        if (value === selectedValue && selectedValue !== correctValue) {
+          btn.classList.add("wrong");
+        }
+      });
+    }
+
+    function showResult(q, selectedValue) {
+      const resultBox = document.getElementById("result-" + q.id);
+      if (!resultBox) return;
+
+      const correctValue = q.options[q.correct];
+      const isCorrect = selectedValue === correctValue;
+
+      const resultClass = isCorrect ? "correct" : "wrong";
+      const verdictClass = isCorrect ? "correct" : "wrong";
+      const verdictText = isCorrect ? loc("resCorrect") : loc("resWrong");
+
+      resultBox.innerHTML = `
+        <div class="result-block ${resultClass}" role="status" aria-live="polite">
+          <div class="verdict ${verdictClass}">${escapeHtml(verdictText)}</div>
+          <div class="result-row"><strong>${escapeHtml(loc("resAns"))}</strong> ${escapeHtml(correctValue)}</div>
+          <div class="result-row"><strong>${escapeHtml(loc("resExp"))}</strong> ${escapeHtml(q.explanation)}</div>
+          <div class="source-row"><strong>${escapeHtml(loc("resSrc"))}</strong> ${escapeHtml(q.source)}</div>
+        </div>
+      `;
+    }
+
+    function getChecklistProgress() {
+      const total = checklistItemsData.length;
+      let done = 0;
+      checklistItemsData.forEach(function (item) {
+        if (checklistState[item.key]) done++;
+      });
+      return total ? Math.round((done / total) * 100) : 0;
+    }
+
+    function updateStats() {
+      const total = quiz.length;
+      let answered = 0;
+      let correct = 0;
+
+      quiz.forEach(function (q) {
+        const saved = savedAnswers[q.id];
+        if (typeof saved === "string" && q.options.includes(saved)) {
+          answered++;
+          if (saved === q.options[q.correct]) {
+            correct++;
+          }
+        }
+      });
+
+      document.getElementById("answeredCount").textContent = answered + "/" + total;
+      document.getElementById("correctCount").textContent = correct;
+      document.getElementById("checklistProgress").textContent = getChecklistProgress() + "%";
+      document.getElementById("overall").value = Math.round(((answered / total) * 100 + getChecklistProgress()) / 2);
+    }
+
+    function updateSummary() {
+      const summaryBox = document.getElementById("summaryBox");
+      const total = quiz.length;
+      let answered = 0;
+      let correct = 0;
+
+      quiz.forEach(function (q) {
+        const saved = savedAnswers[q.id];
+        if (typeof saved === "string" && q.options.includes(saved)) {
+          answered++;
+          if (saved === q.options[q.correct]) {
+            correct++;
+          }
+        }
+      });
+
+      if (answered < total) {
+        summaryBox.innerHTML = `
+          <div class="summary">
+            <p style="color:#9aa4c8;margin:0;">${escapeHtml(loc("sumDone"))} <strong>${answered}</strong> ${escapeHtml(loc("sumOf"))} ${total}</p>
+            <p style="color:#9aa4c8;margin:8px 0 0 0;">${escapeHtml(loc("sumCorr"))} <strong>${correct}</strong></p>
+            <p style="color:#9aa4c8;margin:8px 0 0 0;font-size:14px;">${escapeHtml(loc("sumFin"))}</p>
+          </div>
+        `;
+        return;
+      }
+
+      const percent = Math.round((correct / total) * 100);
+      let verdict = "";
+
+      if (percent >= 85) {
+        verdict = loc("verExc");
+      } else if (percent >= 60) {
+        verdict = loc("verGood");
+      } else {
+        verdict = loc("verNeed");
+      }
+
+      summaryBox.innerHTML = `
+        <div class="summary">
+          <div class="score">${correct}/${total}</div>
+          <p style="margin:8px 0;">${escapeHtml(verdict)}</p>
+          <p style="color:#9aa4c8;margin:0;">${escapeHtml(loc("sumCorr"))} ${percent}%</p>
+        </div>
+      `;
+    }
+
+    function resetAll() {
+      if (!confirm(loc("confReset"))) return;
+
+      savedAnswers = {};
+      manualNotes = {};
+      checklistState = {};
+
+      shuffleOptionsOnce();
+      renderAllSections();
+    }
+
+    function renderAllSections() {
+      prepareData();
+      renderStaticSections();
+      renderChecklist();
+      renderPlan();
+      renderAllQuestions();
+      renderPart2();
+    }
+
+    function initChecklist() {
+      const inputs = document.querySelectorAll("#checklistUl input");
+
+      inputs.forEach(function (input) {
+        input.checked = false;
+        updateCheckItem(input);
+
+        input.addEventListener("change", function () {
+          updateCheckItem(input);
+          updateStats();
+        });
+      });
+
+      updateStats();
+    }
+
+    function updateCheckItem(input) {
+      const item = input.closest(".check-item");
+      if (item) item.classList.toggle("done", input.checked);
+    }
+
+    function copyPhone() {
+      const phone = "89202275676";
+      const status = document.getElementById("copyStatus");
+
+      const showCopied = function () {
+        status.textContent = loc("copied");
+        setTimeout(function () {
+          status.textContent = "";
+        }, 2500);
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(phone)
+          .then(showCopied)
+          .catch(function () {
+            fallbackCopy(phone, showCopied);
+          });
+      } else {
+        fallbackCopy(phone, showCopied);
+      }
+    }
+
+    function fallbackCopy(text, callback) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+
+      try {
+        document.execCommand("copy");
+        callback();
+      } catch (e) {
+        alert(loc("errCopy") + text);
+      }
+
+      document.body.removeChild(textarea);
+    }
+
+    // ============================================================
+    // TIMER LOGIC
+    // ============================================================
+    let timerTotal = 180 * 60; // Default Geography 180 mins
+    let timerRemaining = timerTotal;
+    let timerInterval = null;
+    let timerRunning = false;
+
+    function formatTime(sec) {
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+      return [h, m, s].map(function (v) { return String(v).padStart(2, "0"); }).join(":");
+    }
+
+    function updateTimerDisplay() {
+      const display = document.getElementById("timerDisplay");
+      const widget = document.getElementById("timerWidget");
+      display.textContent = formatTime(timerRemaining);
+      widget.classList.toggle("warning", timerRemaining <= 300 && timerRemaining > 60);
+      widget.classList.toggle("danger", timerRemaining <= 60);
+    }
+
+    function updateTimerButton() {
+      const btn = document.getElementById("timerToggle");
+      btn.textContent = timerRunning ? "⏸" : "▶";
+      btn.setAttribute("title", timerRunning ? loc("timerPause") : loc("timerStart"));
+      btn.setAttribute("aria-label", timerRunning ? loc("timerPause") : loc("timerStart"));
+    }
+
+    function stopTimer() {
+      timerRunning = false;
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = null;
+      updateTimerButton();
+    }
+
+    function startTimer() {
+      if (timerRunning || timerRemaining <= 0) return;
+      timerRunning = true;
+      timerInterval = setInterval(function () {
+        if (timerRemaining > 0) {
+          timerRemaining--;
+          updateTimerDisplay();
+        }
+        if (timerRemaining === 0) {
+          stopTimer();
+          alert(loc("timerUp"));
+        }
+      }, 1000);
+      updateTimerButton();
+    }
+
+    function toggleTimer() {
+      if (timerRunning) stopTimer();
+      else startTimer();
+    }
+
+    function resetTimer() {
+      stopTimer();
+      timerRemaining = timerTotal;
+      updateTimerDisplay();
+    }
+
+    function updateTimerLabels() {
+      const preset = document.getElementById("timerPreset");
+      const presets = [
+        { seconds: 180 * 60, key: "timerGeo" },
+        { seconds: 60 * 60, key: "timerPractice" }
+      ];
+
+      preset.innerHTML = presets.map(function (p) {
+        return `<option value="${p.seconds}">${escapeHtml(loc(p.key))}</option>`;
+      }).join("");
+
+      const currentValue = parseInt(preset.value, 10);
+      if (!presets.some(p => p.seconds === currentValue)) {
+         preset.value = String(180 * 60);
+         timerTotal = 180 * 60;
+      } else {
+         timerTotal = currentValue;
+      }
+      
+      document.getElementById("timerReset").setAttribute("title", loc("timerReset"));
+      document.getElementById("timerReset").setAttribute("aria-label", loc("timerReset"));
+      updateTimerButton();
+      updateTimerDisplay();
+    }
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll(".lang-option").forEach(function (sp) {
+        sp.classList.toggle("active", sp.dataset.lang === lang);
+      });
+      applyUIText();
+      renderAllSections();
+      updateTimerLabels();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      localStorage.removeItem(STORAGE.answers);
+      localStorage.removeItem(STORAGE.checklist);
+      localStorage.removeItem(STORAGE.shuffle);
+      localStorage.removeItem(STORAGE.manual);
+
+      savedAnswers = {};
+      manualNotes = {};
+      checklistState = {};
+
+      shuffleOptionsOnce();
+      applyUIText();
+      renderAllSections();
+      updateTimerLabels();
+      updateTimerDisplay();
+
+      document.getElementById("langToggle").addEventListener("click", function () {
+        setLang(currentLang === "en" ? "ru" : "en");
+      });
+
+      document.getElementById("timerToggle").addEventListener("click", toggleTimer);
+      document.getElementById("timerReset").addEventListener("click", resetTimer);
+
+      document.getElementById("timerPreset").addEventListener("change", function (e) {
+        timerTotal = parseInt(e.target.value, 10);
+        resetTimer();
+      });
+
+      document.getElementById("checklistUl").addEventListener("change", function (e) {
+        if (e.target.matches("input[type='checkbox']")) {
+          const key = e.target.dataset.key;
+          checklistState[key] = e.target.checked;
+          const li = e.target.closest(".check-item");
+          if (li) li.classList.toggle("done", e.target.checked);
+          updateStats();
+        }
+      });
+
+      document.getElementById("part2Container").addEventListener("input", function (e) {
+        if (e.target.matches("input[data-task]")) {
+          manualNotes[e.target.dataset.task] = e.target.value;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
